@@ -1,5 +1,7 @@
-/vendor
+.env
 /.idea
+/.phpintel
+/.vscode
+/vendor
 Homestead.json
 Homestead.yaml
-.env
