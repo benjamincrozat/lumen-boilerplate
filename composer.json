@@ -8,7 +8,8 @@
         "php": ">=7.0",
         "laravel/lumen-framework": "5.5.*",
         "vlucas/phpdotenv": "~2.2",
-        "dusterio/lumen-passport": "^0.2.4"
+        "dusterio/lumen-passport": "^0.2.4",
+        "flipbox/lumen-generator": "^5.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

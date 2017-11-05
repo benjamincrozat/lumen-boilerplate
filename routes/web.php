@@ -16,7 +16,7 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['middleware' => 'auth', 'prefix' => 'api/v1'], function () use ($router) {
-    $router->get('users', function () {
-        return App\User::all();
+    $router->get('user', function () {
+        return auth()->user();
     });
 });

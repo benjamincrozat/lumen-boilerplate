@@ -82,8 +82,13 @@ $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
 
+// All the Laravel Passport stuff…
 $app->register(Laravel\Passport\PassportServiceProvider::class);
 $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
+
+if ($app->environment('local')) {
+    $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+}
 
 $app->configure('auth');
 
@@ -98,12 +103,12 @@ $app->configure('auth');
 |
 */
 
-Dusterio\LumenPassport\LumenPassport::routes($app);
-
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
 ], function ($router) {
     require __DIR__ . '/../routes/web.php';
 });
+
+Dusterio\LumenPassport\LumenPassport::routes($app);
 
 return $app;
