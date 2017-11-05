@@ -1,11 +1,16 @@
 <?php
 
+use App\User;
+
 class ExampleIntegrationTest extends TestCase
 {
     /** @test */
-    public function it_works()
+    public function authenticated_user_can_read_his_own_data()
     {
-        $this->json('GET', '/')
+        $user = factory(User::class)->create();
+
+        $response = $this->actingAs($user)
+            ->json('GET', '/api/v1/user')
             ->assertResponseOk();
     }
 }
