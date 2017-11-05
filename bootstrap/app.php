@@ -23,7 +23,7 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__ . '/../')
 );
 
-// $app->withFacades();
+$app->withFacades();
 
 $app->withEloquent();
 
@@ -82,6 +82,11 @@ $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
 
+$app->register(Laravel\Passport\PassportServiceProvider::class);
+$app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
+
+$app->configure('auth');
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
@@ -92,6 +97,8 @@ $app->register(App\Providers\EventServiceProvider::class);
 | can respond to, as well as the controllers that may handle them.
 |
 */
+
+Dusterio\LumenPassport\LumenPassport::routes($app);
 
 $app->router->group([
     'namespace' => 'App\Http\Controllers',

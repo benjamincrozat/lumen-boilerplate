@@ -14,3 +14,9 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['middleware' => 'auth', 'prefix' => 'api/v1'], function () use ($router) {
+    $router->get('users', function () {
+        return App\User::all();
+    });
+});

@@ -1,13 +1,14 @@
 {
-    "name": "laravel/lumen",
-    "description": "The Laravel Lumen Framework.",
+    "name": "benjamincrozat/lumen-boilerplate",
+    "description": "Quick start your next Lumen project.",
     "keywords": ["framework", "laravel", "lumen"],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=7.0",
         "laravel/lumen-framework": "5.5.*",
-        "vlucas/phpdotenv": "~2.2"
+        "vlucas/phpdotenv": "~2.2",
+        "dusterio/lumen-passport": "^0.2.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
