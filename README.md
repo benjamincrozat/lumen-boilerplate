@@ -24,8 +24,6 @@ You can [read more about the requirements here](https://laravel.com/docs/5.5/ins
 
 ```bash
 composer create-project benjamincrozat/lumen-boilerplate example
-
-# Or `git clone https://github.com/benjamincrozat/lumen-boilerplate example`
 ```
 
 ## License
