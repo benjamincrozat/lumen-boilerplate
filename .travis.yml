@@ -1,12 +1,11 @@
 language: php
 
 php:
-    - 7.0
     - 7.1
 
 install:
     - composer install --no-interaction
-    - cp .env.example .env
+    - cp .env.travis.example .env
     - php artisan key:generate
 
 script:
