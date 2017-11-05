@@ -9,7 +9,9 @@ Quick start your next [Lumen](https://lumen.laravel.com/docs) project.
 
 ## Server requirements
 
-You can [read about the requirements here](https://laravel.com/docs/5.5/installation#server-requirements).
+- PHP 7.1
+
+You can [read more about the requirements here](https://laravel.com/docs/5.5/installation#server-requirements).
 
 ## Dependencies
 
