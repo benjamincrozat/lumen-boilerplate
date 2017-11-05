@@ -20,6 +20,14 @@ You can [read more about the requirements here](https://laravel.com/docs/5.5/ins
 - [dusterio/lumen-passport](https://github.com/dusterio/lumen-passport)
 - [flipboxstudio/lumen-generator](https://github.com/flipboxstudio/lumen-generator) to add back all Artisan's generators. *Note that they're only loaded in the local environment*.
 
+## Usage
+
+```bash
+composer create-project benjamincrozat/lumen-boilerplate example
+
+# Or `git clone https://github.com/benjamincrozat/lumen-boilerplate example`
+```
+
 ## License
 
 [WTFPL](http://www.wtfpl.net/about/)
