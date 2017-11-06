@@ -16,10 +16,12 @@
         "laravel/lumen-framework": "5.5.*",
         "dusterio/lumen-passport": "^0.2.4",
         "vlucas/phpdotenv": "~2.2"
+
     },
     "require-dev": {
         "flipbox/lumen-generator": "^5.4",
         "fzaninotto/faker": "~1.4",
+        "laravel/homestead": "^6.5",
         "mockery/mockery": "~1.0",
         "phpunit/phpunit": "~6.0"
     },
