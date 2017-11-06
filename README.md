@@ -15,7 +15,7 @@ You can [read more about the requirements here](https://lumen.laravel.com/docs/5
 
 ## Why?
 
-[Laravel Lumen](https://lumen.laravel.com/docs) is a fantastic lightweight version of [Laravel](https://laravel.com/docs). But often, it's too light. So I added things I often need for real world projects.
+[Laravel Lumen](https://lumen.laravel.com/docs) is a fantastic lightweight version of [Laravel](https://laravel.com/docs). Too light most of the time. So, I added things I often need for real world projects.
 
 ## Dependencies
 
