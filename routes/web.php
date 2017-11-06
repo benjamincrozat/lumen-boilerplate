@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->get('/', function () {
+    return view('home');
 });
 
 $router->group(['middleware' => 'auth', 'prefix' => 'api/v1'], function () use ($router) {
