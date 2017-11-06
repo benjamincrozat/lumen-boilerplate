@@ -22,7 +22,7 @@ You can [read more about the requirements here](https://lumen.laravel.com/docs/5
 
 ## Usage
 
-You can run this project on anything you want. From [Laravel Valet](https://laravel.com/docs/valet), [Laravel Homestead](https://laravel.com/docs/homestead), Docker, etc.
+You can run this project on anything you want. From [Laravel Valet](https://laravel.com/docs/valet) to [Laravel Homestead](https://laravel.com/docs/homestead) to Docker, etc.
 
 ```bash
 composer create-project benjamincrozat/lumen-boilerplate example
