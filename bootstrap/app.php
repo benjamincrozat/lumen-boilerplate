@@ -83,8 +83,8 @@ $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
 
 // All the Laravel Passport stuff…
-$app->register(Laravel\Passport\PassportServiceProvider::class);
-$app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
+// $app->register(Laravel\Passport\PassportServiceProvider::class);
+// $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
 
 if ($app->environment('local')) {
     $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);

@@ -9,8 +9,6 @@ install:
     - php artisan key:generate
     - touch database/database.sqlite
     - php artisan migrate
-    - php artisan passport:keys
-    - php artisan passport:install
 
 script:
     - php vendor/bin/phpunit
