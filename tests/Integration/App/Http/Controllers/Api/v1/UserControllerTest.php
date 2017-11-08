@@ -2,7 +2,7 @@
 
 use App\User;
 
-class ExampleIntegrationTest extends TestCase
+class UserControllerTest extends TestCase
 {
     /** @test */
     public function authenticated_user_can_read_his_own_data()

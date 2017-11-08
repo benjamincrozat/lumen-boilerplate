@@ -17,8 +17,10 @@ $router->get('/', function () {
     return view('home');
 });
 
-$router->group(['middleware' => 'auth', 'prefix' => 'api/v1'], function () use ($router) {
-    $router->get('user', function (Request $request) {
-        return $request->user();
-    });
+$router->group([
+    'middleware' => 'auth',
+    'namespace' => 'Api\v1',
+    'prefix' => 'api/v1',
+], function () use ($router) {
+    $router->get('user', 'UserController');
 });
