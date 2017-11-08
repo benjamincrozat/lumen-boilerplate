@@ -85,6 +85,7 @@ $app->register(App\Providers\EventServiceProvider::class);
 // All the Laravel Passport stuff…
 // $app->register(Laravel\Passport\PassportServiceProvider::class);
 // $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
+// Dusterio\LumenPassport\LumenPassport::routes($app);
 
 if ($app->environment('local')) {
     $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
@@ -108,7 +109,5 @@ $app->router->group([
 ], function ($router) {
     require __DIR__ . '/../routes/web.php';
 });
-
-Dusterio\LumenPassport\LumenPassport::routes($app);
 
 return $app;
