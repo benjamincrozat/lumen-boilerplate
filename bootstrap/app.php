@@ -78,6 +78,8 @@ $app->routeMiddleware([
 |
 */
 
+$app->configure('auth');
+
 $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
@@ -90,8 +92,6 @@ $app->register(App\Providers\EventServiceProvider::class);
 if ($app->environment('local')) {
     $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 }
-
-$app->configure('auth');
 
 /*
 |--------------------------------------------------------------------------
