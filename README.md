@@ -5,7 +5,7 @@
 
 # [Lumen](https://lumen.laravel.com/docs) Boilerplate
 
-Opinionated boilerplate to quick start your next [Lumen](https://lumen.laravel.com/docs) project.
+Opinionated boilerplate project that fully embrace the Laravel/Lumen philosophy to quick start your next API.
 
 ## Why?
 
