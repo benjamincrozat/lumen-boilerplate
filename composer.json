@@ -16,7 +16,6 @@
         "laravel/lumen-framework": "5.5.*",
         "dusterio/lumen-passport": "^0.2.4",
         "vlucas/phpdotenv": "~2.2"
-
     },
     "require-dev": {
         "flipbox/lumen-generator": "^5.4",
