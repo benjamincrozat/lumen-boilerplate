@@ -3,13 +3,13 @@
 [![License](https://poser.pugx.org/benjamincrozat/lumen-boilerplate/license)](https://packagist.org/packages/benjamincrozat/lumen-boilerplate)
 [![Total Downloads](https://poser.pugx.org/benjamincrozat/lumen-boilerplate/downloads)](https://packagist.org/packages/benjamincrozat/lumen-boilerplate)
 
-# [Lumen](https://lumen.laravel.com/docs) Boilerplate
+# Lumen Boilerplate
 
 Opinionated boilerplate project that fully embraces the Laravel/Lumen philosophy to quick start my next API.
 
 ## Why?
 
-[Laravel Lumen](https://lumen.laravel.com/docs) is a fantastic lightweight version of [Laravel](https://laravel.com/docs). Too light most of the time. So, I added things I often need for real world projects without having to switch to the full framework.
+Lumen is a fantastic lightweight version of [Laravel](https://laravel.com/docs). Too light most of the time. So, I added things I often need for real world projects without having to switch to the full framework.
 
 ## Server requirements
 
