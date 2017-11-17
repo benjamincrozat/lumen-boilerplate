@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -38,14 +40,10 @@ class Handler extends ExceptionHandler
 
     /**
      * Render an exception into an HTTP response.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $e
-     * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $e)
+    public function render(Request $request, Exception $e) : Response
     {
-        if (!method_exists($e, 'getStatusCode') || !$request->wantsJson()) {
+        if ($this->shouldRenderExeption()) {
             return parent::render($request, $e);
         }
 
@@ -53,5 +51,10 @@ class Handler extends ExceptionHandler
             'error' => $e->getStatusCode(),
             'message' => $e->getMessage(),
         ], $e->getStatusCode());
+    }
+
+    protected function shouldRenderExeption() : bool
+    {
+        return !method_exists($e, 'getStatusCode') || !$request->wantsJson();
     }
 }
