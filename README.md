@@ -47,23 +47,39 @@ php artisan migrate --seed
 
 The project can immediately be tested at [http://example.dev](http://example.dev).
 
-The API also works out of the box with a basic token for authentication. First, get it via Tinker:
+The API also works out of the box with a basic token for authentication. First, get your token:
 
 ```bash
-php artisan tinker
+mysql -u root
 
-Psy Shell v0.8.15 (PHP 7.1.10 — cli) by Justin Hileman
->>> App\User::find(1)->api_token
-=> "EiLbF31cBwdFHvKd1X2CBKXG7hX9YezFCPqD3dsI7imqwa21HIV3OGUTsxfc"
->>>
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 52
+Server version: 5.7.20 Homebrew
+
+Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use example; SELECT * FROM users WHERE id = 1;
+
++----+----------------+----------------------+--------------------------------------------------------------+--------------------------------------------------------------+----------------+---------------------+---------------------+
+| id | name           | email                | password                                                     | api_token                                                    | remember_token | created_at          | updated_at          |
++----+----------------+----------------------+--------------------------------------------------------------+--------------------------------------------------------------+----------------+---------------------+---------------------+
+|  1 | Mr. Kamron Toy | fkoelpin@example.org | $2y$10$ckbnX6iSFDyC4lHUT.ClwOC59zOkqzbv8sfkTIoNbmRRE.RakRq.K | Z1m3r3Xw6ejiSZwKwJxTXQCdcGThp78Crs4HoviKUxoGNkPNN7rbo8IliU5u | U6udLlAqAx     | 2017-11-17 22:46:11 | 2017-11-17 22:46:11 |
++----+----------------+----------------------+--------------------------------------------------------------+--------------------------------------------------------------+----------------+---------------------+---------------------+
+1 row in set (0,00 sec)
 ```
 
 And make a basic GET request on `http://example.dev/api/v1/user`:
 
 ```bash
-curl --request GET http://example.dev/api/v1/user?api_token=EiLbF31cBwdFHvKd1X2CBKXG7hX9YezFCPqD3dsI7imqwa21HIV3OGUTsxfc
+curl --request GET http://example.dev/api/v1/user?api_token=Z1m3r3Xw6ejiSZwKwJxTXQCdcGThp78Crs4HoviKUxoGNkPNN7rbo8IliU5u
 
-{"id":1,"name":"Ms. Jeanette Wilkinson V","email":"monserrate.greenholt@example.com","remember_token":"VpAvVVCd5R","created_at":"2017-11-17 21:24:18","updated_at":"2017-11-17 21:24:18"}
+{"data":{"name":"Mr. Kamron Toy","email":"fkoelpin@example.org"}}
 ```
 
 ## License
