@@ -11,6 +11,11 @@ class UserControllerTest extends TestCase
 
         $this->actingAs($user)
             ->json('GET', '/api/v1/user')
-            ->assertResponseOk();
+            ->seeJson([
+                'data' => [
+                    'name' => $user->name,
+                    'email' => $user->email,
+                ],
+            ]);
     }
 }

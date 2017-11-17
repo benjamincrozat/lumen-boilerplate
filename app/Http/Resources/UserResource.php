@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 
-class ExampleResource extends \Illuminate\Http\Resources\Json\Resource
+class UserResource extends \Illuminate\Http\Resources\Json\Resource
 {
     /**
      * Transform the resource into an array.
@@ -14,6 +14,9 @@ class ExampleResource extends \Illuminate\Http\Resources\Json\Resource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'name' => $this->name,
+            'email' => $this->email,
+        ];
     }
 }
