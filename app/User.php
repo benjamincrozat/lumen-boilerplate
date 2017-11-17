@@ -11,10 +11,7 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract
 {
-    use Authenticatable,
-        Authorizable,
-        // HasApiTokens
-    ;
+    use Authenticatable, Authorizable, /* HasApiTokens */;
 
     /**
      * The attributes that are mass assignable.
