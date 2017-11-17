@@ -6,13 +6,13 @@
 
         <title>Lumen Boilerplate</title>
 
-        <link rel="stylesheet" href="/css/app.css">
+        {{-- <link rel="stylesheet" href="/css/app.css"> --}}
     </head>
     <body>
         <div id="app">
             <h1>{{ app()->version() }}</h1>
         </div>
 
-        <script src="/js/app.js"></script>
+        {{-- <script src="/js/app.js"></script> --}}
     </body>
 </html>

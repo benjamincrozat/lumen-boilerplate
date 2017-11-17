@@ -33,13 +33,7 @@ To get started, create a project via Composer to speed things up.
 composer create-project benjamincrozat/lumen-boilerplate example
 ```
 
-Once you set up your `.env` file, run your migrations:
-
-```bash
-php artisan migrate
-```
-
-You can even seed some fake data for users:
+Once you set up your `.env` file, run your migrations. You can even seed some fake data for users:
 
 ```bash
 php artisan migrate --seed
