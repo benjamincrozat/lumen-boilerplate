@@ -5,7 +5,7 @@
 
 # [Lumen](https://lumen.laravel.com/docs) Boilerplate
 
-Opinionated boilerplate project that fully embrace the Laravel/Lumen philosophy to quick start your next API.
+Opinionated boilerplate project that fully embraces the Laravel/Lumen philosophy to quick start my next API.
 
 ## Why?
 
@@ -51,7 +51,6 @@ The API also works out of the box with a basic token for authentication. First, 
 
 ```bash
 php artisan tinker
-
 
 Psy Shell v0.8.15 (PHP 7.1.10 — cli) by Justin Hileman
 >>> App\User::find(1)->api_token
