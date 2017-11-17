@@ -50,6 +50,18 @@ $app->singleton(
 
 /*
 |--------------------------------------------------------------------------
+| Configuration files
+|--------------------------------------------------------------------------
+|
+| Configuration files should be registered before
+| setting up any middleware or service provider.
+|
+*/
+
+$app->configure('auth');
+
+/*
+|--------------------------------------------------------------------------
 | Register Middleware
 |--------------------------------------------------------------------------
 |
@@ -77,8 +89,6 @@ $app->routeMiddleware([
 | totally optional, so you are not required to uncomment this line.
 |
 */
-
-$app->configure('auth');
 
 $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
