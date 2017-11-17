@@ -99,10 +99,6 @@ $app->register(App\Providers\EventServiceProvider::class);
 // $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
 // Dusterio\LumenPassport\LumenPassport::routes($app);
 
-if ($app->environment('local')) {
-    $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
-}
-
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
