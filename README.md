@@ -5,7 +5,7 @@
 
 # [Lumen](https://lumen.laravel.com/docs) Boilerplate
 
-Quick start your next [Lumen](https://lumen.laravel.com/docs) project.
+Opinionated boilerplate to quick start your next [Lumen](https://lumen.laravel.com/docs) project.
 
 ## Why?
 
@@ -22,14 +22,49 @@ You can [read more about the requirements here](https://lumen.laravel.com/docs/5
 - [Lumen](https://lumen.laravel.com/docs)
 - [Laravel Passport](https://laravel.com/docs/passport)
 - [dusterio/lumen-passport](https://github.com/dusterio/lumen-passport)
-- [flipboxstudio/lumen-generator](https://github.com/flipboxstudio/lumen-generator) to add back all Artisan's generators. *Note that they're only loaded in the local environment*.
 
 ## Usage
 
-You can run this project on anything you want. From [Laravel Valet](https://laravel.com/docs/valet) to [Laravel Homestead](https://laravel.com/docs/homestead) to Docker, etc.
+You can run Lumen Boilerplate on [Laravel Valet](https://laravel.com/docs/valet), [Laravel Homestead](https://laravel.com/docs/homestead), [Docker](https://www.docker.com/) or whatever you like.
+
+To get started, create a project via Composer to speed things up.
 
 ```bash
 composer create-project benjamincrozat/lumen-boilerplate example
+```
+
+Once you set up your `.env` file, run your migrations:
+
+```bash
+php artisan migrate
+```
+
+You can even seed some fake data for users:
+
+```bash
+php artisan migrate --seed
+```
+
+The project can immediately be tested at [http://example.dev](http://example.dev).
+
+The API also works out of the box with a basic token for authentication. First, get it via Tinker:
+
+```bash
+php artisan tinker
+
+
+Psy Shell v0.8.15 (PHP 7.1.10 — cli) by Justin Hileman
+>>> App\User::find(1)->api_token
+=> "EiLbF31cBwdFHvKd1X2CBKXG7hX9YezFCPqD3dsI7imqwa21HIV3OGUTsxfc"
+>>>
+```
+
+And make a basic GET request on `http://example.dev/api/v1/user`:
+
+```bash
+curl --request GET http://example.dev/api/v1/user?api_token=EiLbF31cBwdFHvKd1X2CBKXG7hX9YezFCPqD3dsI7imqwa21HIV3OGUTsxfc
+
+{"id":1,"name":"Ms. Jeanette Wilkinson V","email":"monserrate.greenholt@example.com","remember_token":"VpAvVVCd5R","created_at":"2017-11-17 21:24:18","updated_at":"2017-11-17 21:24:18"}
 ```
 
 ## License
