@@ -13,9 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-$router->get('/', function () {
-    return view('home');
-});
+$router->get('/', 'HomeController');
 
 $router->group([
     'middleware' => 'auth',
