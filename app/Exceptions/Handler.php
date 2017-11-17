@@ -45,7 +45,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        rif (!method_exists($e, 'getStatusCode') || !$request->wantsJson()) {
+        if (!method_exists($e, 'getStatusCode') || !$request->wantsJson()) {
             return parent::render($request, $e);
         }
 
