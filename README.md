@@ -5,11 +5,11 @@
 
 # Lumen Boilerplate
 
-Opinionated boilerplate project that fully embraces the Laravel/Lumen philosophy to quick start my next API.
+Quick start your next Lumen project.
 
 ## Why?
 
-Lumen is a fantastic lightweight version of [Laravel](https://laravel.com/docs). Too light most of the time. So, I added things I often need for real world projects without having to switch to the full framework.
+Lumen is a fantastic lightweight version of Laravel. Too light most of the time. So, I added things I often need for real world projects without having to switch to the full framework.
 
 ## Server requirements
 
@@ -33,13 +33,13 @@ To get started, create a project via Composer to speed things up.
 composer create-project benjamincrozat/lumen-boilerplate example
 ```
 
-Once you set up your `.env` file, run your migrations. You can even seed some fake data for users:
+Once you have set up your `.env` file, run your migrations. You can even seed some fake data for users:
 
 ```bash
 php artisan migrate --seed
 ```
 
-The project can immediately be tested at [http://example.dev](http://example.dev).
+Assuming you're using Laravel Valet, the project can immediately be tested at [http://example.dev](http://example.dev).
 
 The API also works out of the box with a basic token for authentication. First, get your token:
 
