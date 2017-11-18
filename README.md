@@ -60,7 +60,7 @@ And make a basic GET request on `http://example.dev/api/v1/user`:
 ```bash
 curl --request GET http://example.dev/api/v1/user?api_token=Z1m3r3Xw6ejiSZwKwJxTXQCdcGThp78Crs4HoviKUxoGNkPNN7rbo8IliU5u
 
-{"data":{"name":"Mr. Kamron Toy","email":"fkoelpin@example.org"}}
+{"data":{"id": 1,"name":"Mr. Kamron Toy","email":"fkoelpin@example.org"}}
 ```
 
 ## License
