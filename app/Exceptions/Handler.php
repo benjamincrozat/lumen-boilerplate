@@ -38,10 +38,14 @@ class Handler extends ExceptionHandler
 
     /**
      * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Exception  $exception
+     * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $e)
     {
-        if ($this->shouldRenderExeption($e)) {
+        if ($this->shouldRenderExeption($request, $e)) {
             return parent::render($request, $e);
         }
 
@@ -51,7 +55,7 @@ class Handler extends ExceptionHandler
         ], $e->getStatusCode());
     }
 
-    protected function shouldRenderExeption($e) : bool
+    protected function shouldRenderExeption(Request $request, Exception $e) : bool
     {
         return !method_exists($e, 'getStatusCode') || !$request->wantsJson();
     }
