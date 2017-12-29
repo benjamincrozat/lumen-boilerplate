@@ -27,9 +27,7 @@ Set up your `.env` file and run your migrations. You can even seed some fake dat
 php artisan migrate --seed
 ```
 
-Assuming you're using Laravel Valet, you can hit [http://example.test](http://example.test).
-
-You can even get a token to immediately test if the project is working:
+You can get a token to test if the project is working properly:
 
 ```bash
 mysql -u root
