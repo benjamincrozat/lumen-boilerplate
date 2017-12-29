@@ -95,10 +95,6 @@ $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
 $app->register(Illuminate\Redis\RedisServiceProvider::class);
 
-if ($app->runningInConsole()) {
-    $app->register(NunoMaduro\Collision\Adapters\Laravel\CollisionServiceProvider::class);
-}
-
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
