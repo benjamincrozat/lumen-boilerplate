@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab61bd8bc810f34c9a054f493bebaf27",
+    "content-hash": "af075e1793e0eaebfa6d6aeed0889ba9",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -3968,6 +3968,46 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2016-10-03T07:35:21+00:00"
+        },
+        {
+            "name": "shipping-docker/vessel",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shipping-docker/vessel.git",
+                "reference": "533cc7d0f0055899c59960c5ea2d1fb3b1af7459"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shipping-docker/vessel/zipball/533cc7d0f0055899c59960c5ea2d1fb3b1af7459",
+                "reference": "533cc7d0f0055899c59960c5ea2d1fb3b1af7459",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Vessel\\VesselServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vessel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Fidao",
+                    "email": "fideloper@gmail.com"
+                }
+            ],
+            "description": "Simple Docker dev environments",
+            "time": "2017-11-16T00:47:14+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
