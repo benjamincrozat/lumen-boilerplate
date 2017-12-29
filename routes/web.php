@@ -13,8 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-$router->get('/', 'HomeController');
-
 $router->group([
     'middleware' => 'auth',
     'namespace' => 'Api\v1',
