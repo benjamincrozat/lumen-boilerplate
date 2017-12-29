@@ -7,9 +7,7 @@ class UserControllerTest extends TestCase
     /** @test */
     public function authenticated_user_can_read_his_own_data()
     {
-        $user = factory(User::class)->create();
-
-        $this->actingAs($user)
+        $this->actingAs(factory(User::class)->create())
             ->json('GET', '/api/v1/user')
             ->seeJson([
                 'data' => [
