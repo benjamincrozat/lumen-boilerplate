@@ -1,13 +1,5 @@
 .env
-/.idea
-/.phpintel
-/.vscode
 /node_modules
-/public/css
-/public/js
-/public/mix-manifest.json
-/storage/oauth-private.key
-/storage/oauth-public.key
 /vendor
 Homestead.json
 Homestead.yaml
