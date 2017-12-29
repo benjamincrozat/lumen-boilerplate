@@ -12,6 +12,7 @@ Opinionated way to start a new Lumen project.
 * [Why?](#why)
 * [Usage](#usage)
 * [Testing](#testing)
+* [Packages suggestions](#packages-suggestions)
 * [License](#license)
 
 ## Why?
@@ -22,7 +23,7 @@ Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a
 
 Lumen Boilerplate comes with [Laravel Valet](https://laravel.com/docs/valet), [Laravel Homestead](https://laravel.com/docs/homestead) and [Vessel](https://vessel.shippingdocker.com/) support out of the box.
 
-To get started, create a new project via Composer:
+If you're familiar with Lumen, let's create a new project via Composer (if not, just [read the documentation](https://lumen.laravel.com/docs)):
 
 ```bash
 composer create-project benjamincrozat/lumen-boilerplate example
@@ -85,6 +86,10 @@ php vendor/bin/phpunit --filter authenticated_user_can_read_his_own_data
 # You can also do both.
 php vendor/bin/phpunit tests/Integration/UserControllerTest.php --filter authenticated_user_can_read_his_own_data
 ```
+
+## Packages suggestions
+
+* [spatie/laravel-permission](https://github.com/spatie/laravel-permission) to add permissions and roles support to your API. This package supports Lumen out of the box. In fact, I did [the PR](https://github.com/spatie/laravel-permission/pull/568). :)
 
 ## License
 
