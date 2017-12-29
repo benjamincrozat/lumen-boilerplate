@@ -17,12 +17,6 @@ Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a
 
 You can [read more about the requirements here](https://lumen.laravel.com/docs/5.5/installation#server-requirements).
 
-## Dependencies
-
-- [Lumen](https://lumen.laravel.com/docs)
-- [Laravel Passport](https://laravel.com/docs/passport)
-- [dusterio/lumen-passport](https://github.com/dusterio/lumen-passport)
-
 ## Usage
 
 You can run Lumen Boilerplate on [Laravel Valet](https://laravel.com/docs/valet), [Laravel Homestead](https://laravel.com/docs/homestead), [Docker](https://www.docker.com/) or whatever you like.
