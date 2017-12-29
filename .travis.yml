@@ -6,8 +6,6 @@ php:
 install:
     - composer install --no-interaction
     - cp .env.travis .env
-    - touch database/database.sqlite
-    - php artisan migrate
 
 script:
     - php vendor/bin/phpunit
