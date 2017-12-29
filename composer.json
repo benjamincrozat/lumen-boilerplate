@@ -1,6 +1,6 @@
 {
     "name": "benjamincrozat/lumen-boilerplate",
-    "description": "Quick start your next Lumen project.",
+    "description": "Opinionated way to start a new Lumen project.",
     "keywords": [
         "api",
         "boilerplate",

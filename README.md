@@ -5,17 +5,11 @@
 
 # Lumen Boilerplate
 
-Quick start your next Lumen project.
+Opinionated way to start a new Lumen project.
 
 ## Why?
 
-Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a lot of useful things for real world needs, it's still too light to me. So in this project, I added some dependencies and boilerplated some useful things to make them work out of the box.
-
-## Server requirements
-
-- PHP 7.1
-
-You can [read more about the requirements here](https://lumen.laravel.com/docs/5.5/installation#server-requirements).
+Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a lot of useful things for real world needs, it's still too light to me. I added some dependencies and boilerplated some useful things.
 
 ## Usage
 
@@ -27,15 +21,15 @@ To get started, create a project via Composer to speed things up.
 composer create-project benjamincrozat/lumen-boilerplate example
 ```
 
-Once you have set up your `.env` file, run your migrations. You can even seed some fake data for users:
+Set up your `.env` file and run your migrations. You can even seed some fake data for users:
 
 ```bash
 php artisan migrate --seed
 ```
 
-Assuming you're using Laravel Valet, the project can immediately be tested at [http://example.test](http://example.dev).
+Assuming you're using Laravel Valet, the project can immediately be tested at [http://example.test](http://example.test).
 
-The API also works out of the box with a basic token for authentication. First, get your token:
+You can even get a token and test the API:
 
 ```bash
 mysql -u root
@@ -49,7 +43,7 @@ mysql> USE example; SELECT * FROM users WHERE id = 1;
 +----+----------------+----------------------+--------------------------------------------------------------+--------------------------------------------------------------+----------------+---------------------+---------------------+
 ```
 
-And make a basic GET request on `http://example.dev/api/v1/user`:
+GET `http://example.dev/api/v1/user`:
 
 ```bash
 curl --request GET http://example.dev/api/v1/user?api_token=Z1m3r3Xw6ejiSZwKwJxTXQCdcGThp78Crs4HoviKUxoGNkPNN7rbo8IliU5u
