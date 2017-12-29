@@ -5,7 +5,7 @@ php:
 
 install:
     - composer install --no-interaction
-    - cp .env.travis.example .env
+    - cp .env.travis .env
     - touch database/database.sqlite
     - php artisan migrate
 
