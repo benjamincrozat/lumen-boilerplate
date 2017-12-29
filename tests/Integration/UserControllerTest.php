@@ -13,8 +13,8 @@ class UserControllerTest extends TestCase
             ->json('GET', '/api/v1/user')
             ->seeJson([
                 'data' => [
-                    'id' => $user->id,
-                    'name' => $user->name,
+                    'id'    => $user->id,
+                    'name'  => $user->name,
                     'email' => $user->email,
                 ],
             ]);
