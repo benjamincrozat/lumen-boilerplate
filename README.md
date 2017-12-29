@@ -12,10 +12,11 @@ Opinionated way to start a new Lumen project.
 * [Why?](#why)
 * [Usage](#usage)
 * [Testing](#testing)
+* [License](#license)
 
 ## Why?
 
-Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a lot of useful things for real world needs, it's still too light to me. I added some dependencies and boilerplated some useful things.
+Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a lot of useful things for real world needs, it's still too light to me. I added a little bit of dependencies and boilerplated useful things.
 
 ## Usage
 
@@ -52,7 +53,13 @@ Send a GET request to `http://example.test/api/v1/user`:
 ```bash
 curl --request GET http://example.test/api/v1/user?api_token=Z1m3r3Xw6ejiSZwKwJxTXQCdcGThp78Crs4HoviKUxoGNkPNN7rbo8IliU5u
 
-{"data":{"id": 1,"name":"Mr. Kamron Toy","email":"fkoelpin@example.org"}}
+{
+    "data": {
+        "id": 1,
+        "name": "Mr. Kamron Toy",
+        "email": "fkoelpin@example.org"
+    }
+}
 ```
 
 ## Testing
