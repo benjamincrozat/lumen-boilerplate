@@ -20,7 +20,7 @@ Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a
 
 ## Usage
 
-You can run Lumen Boilerplate on [Laravel Valet](https://laravel.com/docs/valet), [Laravel Homestead](https://laravel.com/docs/homestead), [Docker](https://vessel.shippingdocker.com/) or whatever you like.
+Lumen Boilerplate comes with [Laravel Valet](https://laravel.com/docs/valet), [Laravel Homestead](https://laravel.com/docs/homestead) and [Vessel](https://vessel.shippingdocker.com/) support out of the box.
 
 To get started, create a new project via Composer:
 
