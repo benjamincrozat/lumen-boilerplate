@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -15,8 +13,8 @@ use Illuminate\Http\Request;
 
 $router->group([
     'middleware' => 'auth',
-    'namespace' => 'Api\v1',
-    'prefix' => 'api/v1',
+    'namespace'  => 'Api\v1',
+    'prefix'     => '/api/v1',
 ], function () use ($router) {
-    $router->get('user', 'UserController');
+    $router->get('/user', 'UserController');
 });
