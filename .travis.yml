@@ -2,10 +2,10 @@ language: php
 
 php:
     - 7.1
+    - 7.2
 
 install:
     - composer install --no-interaction
-    - cp .env.travis .env
 
 script:
     - php vendor/bin/phpunit
