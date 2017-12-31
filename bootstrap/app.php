@@ -95,7 +95,7 @@ $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
 $app->register(Illuminate\Redis\RedisServiceProvider::class);
 
-if ($app->isRunningInConsole()) {
+if ($app->runningInConsole()) {
     $app->register(Laravel\Tinker\TinkerServiceProvider::class);
 }
 
