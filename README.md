@@ -35,24 +35,20 @@ Set up your `.env` file and run your migrations. You can even seed some fake dat
 php artisan migrate --seed
 ```
 
-You can get a token to test if the project is working properly:
+Laravel Tinker is part of this project. You can use it to quickly get an API token...
 
 ```bash
-mysql -u root
+php artisan tinker
 
-mysql> USE example; SELECT api_token FROM users WHERE id = 1;
-
-+--------------------------------------------------------------+
-| api_token                                                    |
-+--------------------------------------------------------------+
-| Z1m3r3Xw6ejiSZwKwJxTXQCdcGThp78Crs4HoviKUxoGNkPNN7rbo8IliU5u |
-+--------------------------------------------------------------+
+Psy Shell v0.8.17 (PHP 7.2.0 — cli) by Justin Hileman
+>>> App\User::first()->api_token
+=> "fIj2rTFTWbB2UO2ZrVhEdHhLMV1XNLgHGzIMZk5FlRqww4tP2y0yyWCktTfg"
 ```
 
-Send a GET request to `http://example.test/api/v1/user`:
+... and send your first GET request to `http://example.test/api/v1/user`:
 
 ```bash
-curl --request GET http://example.test/api/v1/user?api_token=Z1m3r3Xw6ejiSZwKwJxTXQCdcGThp78Crs4HoviKUxoGNkPNN7rbo8IliU5u
+curl --request GET http://example.test/api/v1/user?api_token=fIj2rTFTWbB2UO2ZrVhEdHhLMV1XNLgHGzIMZk5FlRqww4tP2y0yyWCktTfg
 
 {
     "data": {
