@@ -17,4 +17,10 @@ $router->group([
     'prefix'     => '/api/v1',
 ], function () use ($router) {
     $router->get('/user', 'UserController');
+
+    $router->get('/posts', 'PostsController@index');
+    $router->post('/posts', 'PostsController@store');
+    $router->get('/posts/{id}', 'PostsController@show');
+    $router->put('/posts/{id}', 'PostsController@update');
+    $router->delete('/posts/{id}', 'PostsController@destroy');
 });
