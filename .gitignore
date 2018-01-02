@@ -1,4 +1,5 @@
 .env
+.env.bak.vessel
 /node_modules
 /vendor
 Homestead.json

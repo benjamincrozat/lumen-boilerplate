@@ -3,5 +3,4 @@ preset: laravel
 linting: true
 
 disabled:
-  - binary_operator_spaces
   - concat_without_spaces

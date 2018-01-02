@@ -58,6 +58,6 @@ class Handler extends ExceptionHandler
 
     protected function shouldRenderExeption(Request $request, Exception $e) : bool
     {
-        return !method_exists($e, 'getStatusCode') || !$request->wantsJson();
+        return ! method_exists($e, 'getStatusCode') || ! $request->wantsJson();
     }
 }
