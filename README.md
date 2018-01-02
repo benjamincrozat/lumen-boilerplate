@@ -76,10 +76,10 @@ php vendor/bin/phpunit --testsuite Integration
 php vendor/bin/phpunit tests/Integration/UserControllerTest.php
 
 # Run only a given test method.
-php vendor/bin/phpunit --filter authenticated_user_can_read_his_own_data
+php vendor/bin/phpunit --filter user_can_read_his_own_data
 
 # You can also do both.
-php vendor/bin/phpunit tests/Integration/UserControllerTest.php --filter authenticated_user_can_read_his_own_data
+php vendor/bin/phpunit tests/Integration/UserControllerTest.php --filter user_can_read_his_own_data
 ```
 
 ## License
