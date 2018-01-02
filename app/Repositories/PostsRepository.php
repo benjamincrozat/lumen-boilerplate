@@ -14,7 +14,9 @@ class PostsRepository implements RepositoryContract
 
     public function store(array $data)
     {
-        return app('auth')->user()->posts()->save(new Post($data));
+        $user = app('auth')->user();
+
+        return tap($user->posts()->save(new Post($data)))->setRelation('user', $user);
     }
 
     public function get($key)

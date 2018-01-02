@@ -30,14 +30,14 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function user_can_store_post()
     {
-        $user = factory(User::class)->create();
-
-        $this->actingAs($user)
+        $this->actingAs(factory(User::class)->create())
             ->json('POST', '/api/v1/posts', [
                 'title'   => 'Lorem',
                 'content' => 'Ipsum',
             ])
-            ->seeJsonStructure(['data'])
+            ->seeJsonStructure([
+                'data' => ['user'],
+            ])
             ->seeJson([
                 'title'      => 'Lorem',
                 'content'    => 'Ipsum',
@@ -62,9 +62,7 @@ class PostsControllerTest extends TestCase
         $this->actingAs($user)
             ->json('GET', '/api/v1/posts/' . $post->id)
             ->seeJsonStructure([
-                'data' => [
-                    'user',
-                ],
+                'data' => ['user'],
             ])
             ->seeJson([
                 'id'         => $post->id,
@@ -98,9 +96,7 @@ class PostsControllerTest extends TestCase
                 'content' => $new_content,
             ])
             ->seeJsonStructure([
-                'data' => [
-                    'user',
-                ],
+                'data' => ['user'],
             ])
             ->seeJson([
                 'id'         => $post->id,
@@ -123,10 +119,8 @@ class PostsControllerTest extends TestCase
     {
         $user = factory(User::class)->create();
 
-        $post = factory(Post::class)->create(['user_id' => $user->id]);
-
         $this->actingAs($user)
-            ->json('DELETE', '/api/v1/posts/' . $post->id)
+            ->json('DELETE', '/api/v1/posts/' . factory(Post::class)->create(['user_id' => $user->id])->id)
             ->seeStatusCode(204);
     }
 }
