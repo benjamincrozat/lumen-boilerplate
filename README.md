@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/benjamincrozat/lumen-boilerplate.svg?branch=master)](https://travis-ci.org/benjamincrozat/lumen-boilerplate)
-[![StyleCI](https://styleci.io/repos/109622447/shield)](https://styleci.io/repos/109622447)
 [![Latest Stable Version](https://poser.pugx.org/benjamincrozat/lumen-boilerplate/v/stable)](https://packagist.org/packages/benjamincrozat/lumen-boilerplate)
 [![Total Downloads](https://poser.pugx.org/benjamincrozat/lumen-boilerplate/downloads)](https://packagist.org/packages/benjamincrozat/lumen-boilerplate)
 [![License](https://poser.pugx.org/benjamincrozat/lumen-boilerplate/license)](https://packagist.org/packages/benjamincrozat/lumen-boilerplate)
@@ -86,6 +85,8 @@ php vendor/bin/phpunit --filter user_can_read_his_own_data
 # You can also do both.
 php vendor/bin/phpunit tests/Integration/UserControllerTest.php --filter user_can_read_his_own_data
 ```
+
+![](https://user-images.githubusercontent.com/3613731/34499897-9b9343ec-f008-11e7-86fb-9f2a7d36591e.png)
 
 ## License
 
