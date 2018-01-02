@@ -2,9 +2,7 @@ preset: laravel
 
 linting: true
 
-enabled:
-  - concat_with_spaces
-
 disabled:
+  - concat_without_spaces
   - binary_operator_spaces
   - single_class_element_per_statement
