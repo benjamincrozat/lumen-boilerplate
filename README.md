@@ -39,7 +39,7 @@ Laravel Tinker is part of this project. You can use it to quickly get an API tok
 ```bash
 php artisan tinker
 
-Psy Shell v0.8.17 (PHP 7.2.0 — cli) by Justin Hileman
+Psy Shell
 >>> App\User::first()->api_token
 => "fIj2rTFTWbB2UO2ZrVhEdHhLMV1XNLgHGzIMZk5FlRqww4tP2y0yyWCktTfg"
 ```
