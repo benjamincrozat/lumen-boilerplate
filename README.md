@@ -17,7 +17,7 @@ Opinionated way to start a new Lumen project.
 
 ## Why?
 
-Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a lot things for real world needs, it's still too light to me. Here is a list of useful packages I added in this project:
+Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a lot of things for real world needs, it's still too light to me. Here is a list of useful packages I added to the project:
 - [illuminate/redis](https://github.com/illuminate/redis) and [predis/predis](https://github.com/predis/predis) for Redis based caching and queueing
 - [Laravel Tinker](https://github.com/laravel/tinker)
 - [codedungeon/phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer) and [nunomaduro/collision](https://github.com/nunomaduro/collision) to make testing even more enjoyable
@@ -25,9 +25,9 @@ Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a
 
 ## Usage
 
-Lumen Boilerplate comes with [Laravel Valet](https://laravel.com/docs/valet), [Laravel Homestead](https://laravel.com/docs/homestead) and [Vessel](https://vessel.shippingdocker.com/) support out of the box.
+Lumen Boilerplate comes with [Laravel Homestead](https://laravel.com/docs/homestead) and [Vessel](https://vessel.shippingdocker.com/) support out of the box. You are free to run it however you want, though.
 
-If you're familiar with Lumen, let's create a new project via Composer (if not, just [read the documentation](https://lumen.laravel.com/docs)):
+If you are familiar with Lumen, let's create a new project via Composer (if not, just [read the documentation](https://lumen.laravel.com/docs)):
 
 ```bash
 composer create-project benjamincrozat/lumen-boilerplate example
