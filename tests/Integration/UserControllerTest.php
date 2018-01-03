@@ -16,6 +16,7 @@ class UserControllerTest extends TestCase
     {
         factory(User::class)->create();
 
+        // In normal conditions, this relationship is loaded (see app/Providers/AuthServiceProvider.php).
         $user = User::with('posts')->first();
 
         $this->actingAs($user)

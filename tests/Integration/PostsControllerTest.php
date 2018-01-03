@@ -17,6 +17,7 @@ class PostsControllerTest extends TestCase
     {
         $this->actingAs(factory(User::class)->create())
             ->json('GET', '/api/v1/posts')
+            // Validate that a paginator is returned.
             ->seeJsonStructure(['data', 'links', 'meta']);
     }
 
@@ -94,6 +95,7 @@ class PostsControllerTest extends TestCase
         $this->actingAs($user)
             ->json('GET', '/api/v1/posts/' . $post->id)
             ->seeJsonStructure([
+                // This relationship should be loaded.
                 'data' => ['user'],
             ])
             ->seeJson([
@@ -130,6 +132,7 @@ class PostsControllerTest extends TestCase
             ->seeJsonStructure([
                 'data' => ['user'],
             ])
+            // Make sure we get fresh data.
             ->seeJson([
                 'title'      => $new_title,
                 'content'    => $new_content,

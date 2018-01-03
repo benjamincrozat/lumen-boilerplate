@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * This test case is totally useless. It's present to get you started quick.
+ */
 class ExampleUnitTest extends TestCase
 {
     /** @test */
