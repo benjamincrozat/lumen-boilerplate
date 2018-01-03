@@ -18,9 +18,10 @@ Opinionated way to start a new Lumen project.
 ## Why?
 
 Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a lot of things for real world needs, it's still too light to me. Here is a list of useful packages I added to the project:
+- [Clockwork](https://underground.works/clockwork/) for easy debugging.
+- [codedungeon/phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer) and [nunomaduro/collision](https://github.com/nunomaduro/collision) to make testing even more enjoyable
 - [illuminate/redis](https://github.com/illuminate/redis) and [predis/predis](https://github.com/predis/predis) for Redis based caching and queueing
 - [Laravel Tinker](https://github.com/laravel/tinker)
-- [codedungeon/phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer) and [nunomaduro/collision](https://github.com/nunomaduro/collision) to make testing even more enjoyable
 - [symfony/var-dumper](https://symfony.com/doc/current/components/var_dumper.html) for the `dump()` helper
 
 ## Usage
