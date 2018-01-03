@@ -3,9 +3,10 @@
 namespace App\Repositories;
 
 use App\Post;
-use App\Contracts\RepositoryContract;
+use App\Contracts\PostsRepositoryContract;
+use Illuminate\Pagination\LengthAwarePaginator;
 
-class PostsRepository implements RepositoryContract
+class PostsRepository implements PostsRepositoryContract
 {
     /**
      * @var App\User
@@ -17,29 +18,38 @@ class PostsRepository implements RepositoryContract
         $this->user = app('auth')->user();
     }
 
-    public function list(array $data)
+    public function list(array $data) : LengthAwarePaginator
     {
         return Post::with('user')->paginate(20);
     }
 
-    public function store(array $data)
+    public function store(array $data) : void
     {
-        return tap($this->user->posts()->save(new Post($data)))
-            ->setRelation('user', $this->user);
+        if (! $this->user->posts()->save(new Post($data))) {
+            abort('Error while creating the resource.');
+        }
     }
 
-    public function get($key)
+    public function get(int $id) : Post
     {
-        return Post::with('user')->findOrFail($key);
+        return Post::with('user')->findOrFail($id);
     }
 
-    public function update($key, array $data)
+    public function update(int $id, array $data) : Post
     {
-        return tap(Post::with('user')->findOrFail($key))->update($data);
+        $post = Post::with('user')->findOrFail($id);
+
+        if (! $post->update($data)) {
+            abort('Error while updating the resource.');
+        }
+
+        return $post;
     }
 
-    public function delete($key)
+    public function delete(int $id) : void
     {
-        return Post::findOrFail($key)->delete();
+        if (! Post::findOrFail($id)->delete()) {
+            abort('Error while deleting the resource.');
+        }
     }
 }

@@ -2,9 +2,11 @@
 
 namespace App\Repositories;
 
-use App\Contracts\RepositoryContract;
+use App\Post;
+use App\Contracts\PostsRepositoryContract;
+use Illuminate\Pagination\LengthAwarePaginator;
 
-class PostsCacheRepository extends BaseCacheRepository implements RepositoryContract
+class PostsCacheRepository extends BaseCacheRepository implements PostsRepositoryContract
 {
     public static $tag = Post::class;
 
@@ -20,40 +22,40 @@ class PostsCacheRepository extends BaseCacheRepository implements RepositoryCont
         $this->next = $repository;
     }
 
-    public function list(array $data)
+    public function list(array $data) : LengthAwarePaginator
     {
         return $this->remember($this->keyFromData($data), function () use ($data) {
             return $this->next->list($data);
         });
     }
 
-    public function store(array $data)
+    public function store(array $data) : void
     {
-        return $this->next->store($data);
+        $this->next->store($data);
     }
 
-    public function get($key)
+    public function get(int $id) : Post
     {
-        return $this->remember($key, function () use ($key) {
-            return $this->next->get($key);
+        return $this->remember($id, function () use ($id) {
+            return $this->next->get($id);
         });
     }
 
-    public function update($key, array $data)
+    public function update(int $id, array $data) : Post
     {
         // The resource has been updated, we no longer need the existing cache.
-        $this->cache->tags(self::$tag)->forget($key);
+        $this->cache->tags(self::$tag)->forget($id);
 
-        return $this->remember($key, function () use ($key, $data) {
-            return $this->next->update($key, $data);
+        return $this->remember($id, function () use ($id, $data) {
+            return $this->next->update($id, $data);
         });
     }
 
-    public function delete($key)
+    public function delete(int $id) : void
     {
         // The resource has been removed, we can forget about it.
-        $this->cache->tags(self::$tag)->forget($key);
+        $this->cache->tags(self::$tag)->forget($id);
 
-        return $this->next->delete($key);
+        $this->next->delete($id);
     }
 }

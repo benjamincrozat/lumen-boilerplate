@@ -35,13 +35,6 @@ class PostsControllerTest extends TestCase
                 'title'   => 'Lorem',
                 'content' => 'Ipsum',
             ])
-            ->seeJsonStructure([
-                'data' => ['user'],
-            ])
-            ->seeJson([
-                'title'      => 'Lorem',
-                'content'    => 'Ipsum',
-            ])
             ->seeStatusCode(201);
     }
 
@@ -141,9 +134,6 @@ class PostsControllerTest extends TestCase
                 'data' => ['user'],
             ])
             ->seeJson([
-                'id'         => $post->id,
-                'created_at' => (string) $post->created_at,
-                'updated_at' => (string) $post->updated_at,
                 'title'      => $new_title,
                 'content'    => $new_content,
             ]);
