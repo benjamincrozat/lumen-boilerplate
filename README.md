@@ -107,7 +107,7 @@ Here are some of my thoughts on testing:
 - Use Facades inside your tests to make mocking smoother;
 - Be as exhaustive as possible.
 
-![](https://user-images.githubusercontent.com/3613731/34520232-232977ac-f088-11e7-8a94-287db0899659.png)
+![](https://user-images.githubusercontent.com/3613731/34539046-4eeb8c30-f0cf-11e7-9819-f6dce59a2d96.png)
 
 ## License
 
