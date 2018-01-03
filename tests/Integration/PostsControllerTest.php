@@ -45,8 +45,7 @@ class PostsControllerTest extends TestCase
             ->json('POST', '/api/v1/posts', [
                 'content' => 'Ipsum',
             ])
-            ->seeJsonStructure(['title'])
-            ->seeStatusCode(422);
+            ->seeValidationError('title');
     }
 
     /** @test */
@@ -65,8 +64,7 @@ class PostsControllerTest extends TestCase
                 'title'   => 'Lorem',
                 'content' => 'Ipsum',
             ])
-            ->seeJsonStructure(['title'])
-            ->seeStatusCode(422);
+            ->seeValidationError('title');
     }
 
     /** @test */
@@ -76,8 +74,7 @@ class PostsControllerTest extends TestCase
             ->json('POST', '/api/v1/posts', [
                 'title' => 'Lorem',
             ])
-            ->seeJsonStructure(['content'])
-            ->seeStatusCode(422);
+            ->seeValidationError('content');
     }
 
     /** @test */
@@ -150,8 +147,7 @@ class PostsControllerTest extends TestCase
             ->json('PUT', '/api/v1/posts/' . $post->id, [
                 'content' => 'Foo',
             ])
-            ->seeJsonStructure(['title'])
-            ->seeStatusCode(422);
+            ->seeValidationError('title');
     }
 
     /** @test */
@@ -170,8 +166,7 @@ class PostsControllerTest extends TestCase
                 'title'   => $second_post->title,
                 'content' => 'Bar',
             ])
-            ->seeJsonStructure(['title'])
-            ->seeStatusCode(422);
+            ->seeValidationError('title');
     }
 
     /** @test */
@@ -185,8 +180,7 @@ class PostsControllerTest extends TestCase
             ->json('PUT', '/api/v1/posts/' . $post->id, [
                 'title' => 'Foo',
             ])
-            ->seeJsonStructure(['content'])
-            ->seeStatusCode(422);
+            ->seeValidationError('content');
     }
 
     /** @test */
