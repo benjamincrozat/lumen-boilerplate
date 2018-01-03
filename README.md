@@ -68,7 +68,7 @@ curl --request GET http://example.test/api/v1/user?api_token=fIj2rTFTWbB2UO2ZrVh
 Lumen Boilerplate integrates basic CRUD for blog posts as an example. Here are all the fancy features and design patterns I use for the cleanest and most performant implementation possible:
 - [Caching](https://lumen.laravel.com/docs/5.5/cache)
 - [Decorator design pattern](https://www.google.com/search?q=decorator+design+pattern) (used in repositories for elegant caching)
-- [Dependencies injection](https://laravel.com/docs/5.5/container#introduction)
+- [Dependency injection design pattern](https://laravel.com/docs/5.5/container#introduction)
 - [Eloquent](https://laravel.com/docs/5.5/eloquent) (see the `app` folder for the models)
 - [JSON resources](https://laravel.com/docs/5.5/eloquent-resources) (see the `app/Http/Resources` folder)
 - [Repository design pattern](https://www.google.com/search?q=repository+design+pattern) (see the `app/Repositories` folder and `app/Contracts/RepositoryContract.php`)
@@ -104,4 +104,4 @@ php vendor/bin/phpunit tests/Integration/UserControllerTest.php --filter user_ca
 
 ## License
 
-[WTFPL](http://www.wtfpl.net/about/)
+[MIT](http://opensource.org/licenses/MIT)

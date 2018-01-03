@@ -9,7 +9,7 @@
         "lumen",
         "restful"
     ],
-    "license": "WTFPL",
+    "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=7.1",
