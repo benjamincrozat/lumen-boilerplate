@@ -72,7 +72,7 @@ Lumen Boilerplate integrates basic CRUD for blog posts as an example. Here are a
 - [Dependency injection design pattern](https://laravel.com/docs/5.5/container#introduction)
 - [Eloquent](https://laravel.com/docs/5.5/eloquent) (see the `app` folder for the models)
 - [JSON resources](https://laravel.com/docs/5.5/eloquent-resources) (see the `app/Http/Resources` folder)
-- [Repository design pattern](https://www.google.com/search?q=repository+design+pattern) (see the `app/Repositories` folder and `app/Contracts/RepositoryContract.php`)
+- [Repository design pattern](https://www.google.com/search?q=repository+design+pattern) (see the `app/Repositories` folder and `app/Contracts/PostsRepositoryContract.php`)
 - [Service container](https://lumen.laravel.com/docs/5.5/container) (see `app/Providers/AppServiceProvider.php`)
 
 Want to add another resource to your API? Duplicate the existing code and deliver in no time!
