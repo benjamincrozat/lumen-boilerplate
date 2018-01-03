@@ -71,9 +71,11 @@ $app->configure('database');
 |
 */
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
+if (! $app->environment('production')) {
+    $app->middleware([
+        Clockwork\Support\Lumen\ClockworkMiddleware::class,
+    ]);
+}
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
