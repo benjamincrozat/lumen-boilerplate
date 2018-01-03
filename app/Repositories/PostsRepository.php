@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Post;
-use Illuminate\Auth\AuthManager;
 use App\Contracts\RepositoryContract;
 
 class PostsRepository implements RepositoryContract
@@ -13,9 +12,9 @@ class PostsRepository implements RepositoryContract
      */
     protected $user;
 
-    public function __construct(AuthManager $auth)
+    public function __construct()
     {
-        $this->user = $auth->user();
+        $this->user = app('auth')->user();
     }
 
     public function list(array $data)
