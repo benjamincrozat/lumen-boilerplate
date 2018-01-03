@@ -75,7 +75,7 @@ Lumen Boilerplate integrates basic CRUD for blog posts as an example. Here are a
 - [Repository design pattern](https://www.google.com/search?q=repository+design+pattern) (see the `app/Repositories` folder and `app/Contracts/RepositoryContract.php`)
 - [Service container](https://lumen.laravel.com/docs/5.5/container) (see `app/Providers/AppServiceProvider.php`)
 
-Want to add another resource in your API? Duplicate the existing code and deliver in no time!
+Want to add another resource to your API? Duplicate the existing code and deliver in no time!
 
 ## Testing
 
@@ -101,7 +101,7 @@ php vendor/bin/phpunit --filter user_can_read_his_own_data
 php vendor/bin/phpunit tests/Integration/UserControllerTest.php --filter user_can_read_his_own_data
 ```
 
-![](https://user-images.githubusercontent.com/3613731/34499897-9b9343ec-f008-11e7-86fb-9f2a7d36591e.png)
+![](https://user-images.githubusercontent.com/3613731/34520232-232977ac-f088-11e7-8a94-287db0899659.png)
 
 ## License
 
