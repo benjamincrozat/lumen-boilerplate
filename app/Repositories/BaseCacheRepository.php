@@ -18,9 +18,9 @@ abstract class BaseCacheRepository
      */
     protected $cache;
 
-    public function __construct(CacheManager $cache)
+    public function __construct()
     {
-        $this->cache = $cache;
+        $this->cache = app('cache');
     }
 
     /**

@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use Illuminate\Cache\CacheManager;
 use App\Contracts\RepositoryContract;
 
 class PostsCacheRepository extends BaseCacheRepository implements RepositoryContract
@@ -14,9 +13,9 @@ class PostsCacheRepository extends BaseCacheRepository implements RepositoryCont
      */
     protected $next;
 
-    public function __construct(CacheManager $cache, PostsRepository $repository)
+    public function __construct(PostsRepository $repository)
     {
-        parent::__construct($cache);
+        parent::__construct();
 
         $this->next = $repository;
     }
