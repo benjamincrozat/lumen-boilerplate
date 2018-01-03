@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('posts', function () {
+        $this->app->bind(PostsCacheRepository::class, function () {
             return new PostsCacheRepository(new PostsRepository());
         });
     }
