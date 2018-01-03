@@ -2,9 +2,6 @@
 
 use Illuminate\Support\Carbon;
 
-/**
- * @group integration
- */
 class ThrottleRequestsTest extends TestCase
 {
     /** @test */
