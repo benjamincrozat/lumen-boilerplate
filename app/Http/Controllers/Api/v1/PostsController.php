@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Resources\PostResource;
 use App\Repositories\PostsCacheRepository;
@@ -25,6 +26,8 @@ class PostsController extends \App\Http\Controllers\Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, Post::$rules);
+
         $post = $this->posts->store($request->all());
 
         $resource = new PostResource($post);
@@ -39,6 +42,11 @@ class PostsController extends \App\Http\Controllers\Controller
 
     public function update(Request $request, int $id)
     {
+        $rules = Post::$rules;
+        $rules['title'] .= ',' . $id;
+
+        $this->validate($request, Post::$rules);
+
         return new PostResource($this->posts->update($id, $request->all()));
     }
 

@@ -46,6 +46,48 @@ class PostsControllerTest extends TestCase
     }
 
     /** @test */
+    public function user_cannot_store_post_without_title()
+    {
+        $this->actingAs(factory(User::class)->create())
+            ->json('POST', '/api/v1/posts', [
+                'content' => 'Ipsum',
+            ])
+            ->seeJsonStructure(['title'])
+            ->seeStatusCode(422);
+    }
+
+    /** @test */
+    public function user_cannot_store_post_with_an_already_used_title()
+    {
+        $user = factory(User::class)->create();
+
+        factory(Post::class)->create([
+            'user_id' => $user->id,
+            'title'   => 'Lorem',
+            'content' => 'Ipsum',
+        ]);
+
+        $this->actingAs($user)
+            ->json('POST', '/api/v1/posts', [
+                'title'   => 'Lorem',
+                'content' => 'Ipsum',
+            ])
+            ->seeJsonStructure(['title'])
+            ->seeStatusCode(422);
+    }
+
+    /** @test */
+    public function user_cannot_store_post_without_content()
+    {
+        $this->actingAs(factory(User::class)->create())
+            ->json('POST', '/api/v1/posts', [
+                'title' => 'Lorem',
+            ])
+            ->seeJsonStructure(['content'])
+            ->seeStatusCode(422);
+    }
+
+    /** @test */
     public function guest_cannot_read_post()
     {
         $this->json('GET', '/api/v1/posts/1')
@@ -105,6 +147,56 @@ class PostsControllerTest extends TestCase
                 'title'      => $new_title,
                 'content'    => $new_content,
             ]);
+    }
+
+    /** @test */
+    public function user_cannot_update_post_without_title()
+    {
+        $user = factory(User::class)->create();
+
+        $post = factory(Post::class)->create(['user_id' => $user->id]);
+
+        $this->actingAs($user)
+            ->json('PUT', '/api/v1/posts/' . $post->id, [
+                'content' => 'Foo',
+            ])
+            ->seeJsonStructure(['title'])
+            ->seeStatusCode(422);
+    }
+
+    /** @test */
+    public function user_cannot_update_post_with_an_already_used_title()
+    {
+        $user = factory(User::class)->create();
+
+        $first_post  = factory(Post::class)->create(['user_id' => $user->id]);
+        $second_post = factory(Post::class)->create([
+            'user_id' => $user->id,
+            'title'   => 'Foo',
+        ]);
+
+        $this->actingAs($user)
+            ->json('PUT', '/api/v1/posts/' . $first_post->id, [
+                'title'   => $second_post->title,
+                'content' => 'Bar',
+            ])
+            ->seeJsonStructure(['title'])
+            ->seeStatusCode(422);
+    }
+
+    /** @test */
+    public function user_cannot_update_post_without_content()
+    {
+        $user = factory(User::class)->create();
+
+        $post = factory(Post::class)->create(['user_id' => $user->id]);
+
+        $this->actingAs($user)
+            ->json('PUT', '/api/v1/posts/' . $post->id, [
+                'title' => 'Foo',
+            ])
+            ->seeJsonStructure(['content'])
+            ->seeStatusCode(422);
     }
 
     /** @test */
