@@ -12,9 +12,9 @@
 */
 
 $router->group([
-    'middleware' => 'auth',
-    'namespace'  => 'Api\v1',
-    'prefix'     => '/api/v1',
+    'middleware'  => 'throttle',
+    'namespace'   => 'Api\v1',
+    'prefix'      => '/api/v1',
 ], function () use ($router) {
     $router->get('/user', 'UserController');
 

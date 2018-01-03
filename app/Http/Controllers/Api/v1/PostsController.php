@@ -17,6 +17,10 @@ class PostsController extends \App\Http\Controllers\Controller
     public function __construct(PostsCacheRepository $posts)
     {
         $this->posts = $posts;
+
+        // As routes groups can't have multiple middlewares
+        // in Lumen, we have to set this one here.
+        $this->middleware('auth');
     }
 
     public function index(Request $request)
