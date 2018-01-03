@@ -11,6 +11,7 @@ Opinionated way to start a new Lumen project.
 
 * [Why?](#why)
 * [Usage](#usage)
+* [Sample code](#sample-code)
 * [Testing](#testing)
 * [License](#license)
 
@@ -61,6 +62,19 @@ curl --request GET http://example.test/api/v1/user?api_token=fIj2rTFTWbB2UO2ZrVh
     }
 }
 ```
+
+## Sample code
+
+Lumen Boilerplate integrates basic CRUD for blog posts as an example. Here are all the fancy features and design patterns I use for the cleanest and most performant implementation possible:
+- [Caching](https://lumen.laravel.com/docs/5.5/cache)
+- [Decorator design pattern](https://www.google.com/search?q=decorator+design+pattern) (used in repositories for elegant caching)
+- [Dependencies injection](https://laravel.com/docs/5.5/container#introduction)
+- [Eloquent](https://laravel.com/docs/5.5/eloquent) (see the `app` folder for the models)
+- [JSON resources](https://laravel.com/docs/5.5/eloquent-resources) (see the `app/Http/Resources` folder)
+- [Repository design pattern](https://www.google.com/search?q=repository+design+pattern) (see the `app/Repositories` folder and `app/Contracts/RepositoryContract.php`)
+- [Service container](https://lumen.laravel.com/docs/5.5/container) (see `app/Providers/AppServiceProvider.php`)
+
+Want to add another resource in your API? Duplicate the existing code and deliver in no time!
 
 ## Testing
 

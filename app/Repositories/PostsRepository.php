@@ -3,10 +3,21 @@
 namespace App\Repositories;
 
 use App\Post;
+use Illuminate\Auth\AuthManager;
 use App\Contracts\RepositoryContract;
 
 class PostsRepository implements RepositoryContract
 {
+    /**
+     * @var App\User
+     */
+    protected $user;
+
+    public function __construct(AuthManager $auth)
+    {
+        $this->user = $auth->user();
+    }
+
     public function list(array $data)
     {
         return Post::with('user')->paginate(20);
@@ -14,9 +25,8 @@ class PostsRepository implements RepositoryContract
 
     public function store(array $data)
     {
-        $user = app('auth')->user();
-
-        return tap($user->posts()->save(new Post($data)))->setRelation('user', $user);
+        return tap($this->user->posts()->save(new Post($data)))
+            ->setRelation('user', $this->user);
     }
 
     public function get($key)

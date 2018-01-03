@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use Illuminate\Cache\CacheManager;
 use App\Contracts\RepositoryContract;
 
 class PostsCacheRepository extends BaseCacheRepository implements RepositoryContract
@@ -13,8 +14,10 @@ class PostsCacheRepository extends BaseCacheRepository implements RepositoryCont
      */
     protected $next;
 
-    public function __construct(PostsRepository $repository)
+    public function __construct(CacheManager $cache, PostsRepository $repository)
     {
+        parent::__construct($cache);
+
         $this->next = $repository;
     }
 
@@ -39,7 +42,8 @@ class PostsCacheRepository extends BaseCacheRepository implements RepositoryCont
 
     public function update($key, array $data)
     {
-        app('cache')->tags(self::$tag)->forget($key);
+        // The resource has been updated, we no longer need the existing cache.
+        $this->cache->tags(self::$tag)->forget($key);
 
         return $this->remember($key, function () use ($key, $data) {
             return $this->next->update($key, $data);
@@ -48,7 +52,8 @@ class PostsCacheRepository extends BaseCacheRepository implements RepositoryCont
 
     public function delete($key)
     {
-        app('cache')->tags(self::$tag)->forget($key);
+        // The resource has been removed, we can forget about it.
+        $this->cache->tags(self::$tag)->forget($key);
 
         return $this->next->delete($key);
     }

@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use Illuminate\Cache\CacheManager;
+
 abstract class BaseCacheRepository
 {
     /**
@@ -10,6 +12,16 @@ abstract class BaseCacheRepository
      * @var string
      */
     public static $tag;
+
+    /**
+     * @var CacheManager
+     */
+    protected $cache;
+
+    public function __construct(CacheManager $cache)
+    {
+        $this->cache = $cache;
+    }
 
     /**
      * Generate a cache key from an array usually coming from Illuminate\Http\Request::all().
@@ -26,6 +38,6 @@ abstract class BaseCacheRepository
      */
     protected function remember(string $key, \Closure $callback, int $time = 60)
     {
-        return app('cache')->tags(self::$tag)->remember($key, $time, $callback);
+        return $this->cache->tags(self::$tag)->remember($key, $time, $callback);
     }
 }
