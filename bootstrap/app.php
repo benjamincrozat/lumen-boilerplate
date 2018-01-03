@@ -96,6 +96,10 @@ $app->register(App\Providers\EventServiceProvider::class);
 $app->register(Illuminate\Redis\RedisServiceProvider::class);
 $app->register(Laravel\Tinker\TinkerServiceProvider::class);
 
+if (! $app->environment('production')) {
+    $app->register(Clockwork\Support\Lumen\ClockworkServiceProvider::class);
+}
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
