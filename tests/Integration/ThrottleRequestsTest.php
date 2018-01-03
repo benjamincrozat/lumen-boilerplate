@@ -12,7 +12,7 @@ class ThrottleRequestsTest extends TestCase
     {
         Carbon::setTestNow(null);
 
-        app('router')->get('/', ['middleware' => 'throttle:2,1']);
+        Route::get('/', ['middleware' => 'throttle:2,1']);
 
         $this->json('GET', '/')
             ->seeHeader('X-RateLimit-Limit', 2)

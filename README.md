@@ -102,6 +102,11 @@ php vendor/bin/phpunit --filter user_can_read_his_own_data
 php vendor/bin/phpunit tests/Integration/UserControllerTest.php --filter user_can_read_his_own_data
 ```
 
+Here are some of my thoughts on testing:
+- Unit Tests don't ensure a working app. They should only back up Integration Tests when needed. Don't write useless tests;
+- Use Facades inside your tests to make mocking smoother;
+- Be as exhaustive as possible.
+
 ![](https://user-images.githubusercontent.com/3613731/34520232-232977ac-f088-11e7-8a94-287db0899659.png)
 
 ## License
