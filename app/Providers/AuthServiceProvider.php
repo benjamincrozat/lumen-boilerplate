@@ -30,11 +30,13 @@ class AuthServiceProvider extends ServiceProvider
                 return;
             }
 
+            $user = User::where('api_token', $request->input('api_token'));
+
             if ($request->is('api/v1/user')) {
-                return User::with('posts')->where('api_token', $request->input('api_token'))->first();
+                $user = $user->with('posts');
             }
 
-            return User::where('api_token', $request->input('api_token'))->first();
+            return $user->first();
         });
     }
 }
