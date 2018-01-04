@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\v1;
 use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Resources\PostResource;
+use App\Contracts\PostsRepositoryContract;
 use App\Repositories\PostsCacheRepository;
 
 class PostsController extends \App\Http\Controllers\Controller
@@ -14,7 +15,7 @@ class PostsController extends \App\Http\Controllers\Controller
      */
     protected $posts;
 
-    public function __construct(PostsCacheRepository $posts)
+    public function __construct(PostsRepositoryContract $posts)
     {
         $this->posts = $posts;
 
