@@ -100,6 +100,7 @@ $app->register(Illuminate\Redis\RedisServiceProvider::class);
 $app->register(Laravel\Tinker\TinkerServiceProvider::class);
 
 if (! $app->environment('production')) {
+    $app->register(BC\LumenSwagger\ServiceProvider::class);
     $app->register(Clockwork\Support\Lumen\ClockworkServiceProvider::class);
 }
 
