@@ -16,5 +16,6 @@ return PhpCsFixer\Config::create()
         'no_superfluous_elseif'             => true,
         'not_operator_with_successor_space' => true,
         'ordered_imports'                   => ['sortAlgorithm' => 'length'],
+        'phpdoc_to_comment'                 => false,
         'return_type_declaration'           => ['space_before' => 'one'],
     ]);
