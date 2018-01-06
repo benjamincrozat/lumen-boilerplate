@@ -12,12 +12,3 @@
 | php artisan swagger --scan config
 |
 */
-
-/**
- * @SWG\Swagger(
- *     @SWG\Info(
- *         title="API",
- *         version="1.0.0"
- *     )
- * )
- */
