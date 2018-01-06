@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ec9bbe2824bfcfea74e454752b70081",
+    "content-hash": "f286251ceb0952837065dfb87f195e11",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2821,16 +2821,16 @@
     "packages-dev": [
         {
             "name": "benjamincrozat/lumen-swagger",
-            "version": "0.2.4",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/benjamincrozat/lumen-swagger.git",
-                "reference": "e459460d50f34555e0dbd7dfe44c83f8dff1ed61"
+                "reference": "a1c4e9422c75aa4277fe77bf0702fa1442c1d867"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/benjamincrozat/lumen-swagger/zipball/e459460d50f34555e0dbd7dfe44c83f8dff1ed61",
-                "reference": "e459460d50f34555e0dbd7dfe44c83f8dff1ed61",
+                "url": "https://api.github.com/repos/benjamincrozat/lumen-swagger/zipball/a1c4e9422c75aa4277fe77bf0702fa1442c1d867",
+                "reference": "a1c4e9422c75aa4277fe77bf0702fa1442c1d867",
                 "shasum": ""
             },
             "require": {
@@ -2859,7 +2859,7 @@
                 "restful",
                 "swagger"
             ],
-            "time": "2018-01-06T08:17:50+00:00"
+            "time": "2018-01-06T08:22:55+00:00"
         },
         {
             "name": "codedungeon/phpunit-result-printer",

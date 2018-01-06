@@ -20,7 +20,7 @@
         "vlucas/phpdotenv": "~2.2"
     },
     "require-dev": {
-        "benjamincrozat/lumen-swagger": "^0.2.0",
+        "benjamincrozat/lumen-swagger": "^1.0",
         "codedungeon/phpunit-result-printer": "^0.4.4",
         "fzaninotto/faker": "~1.4",
         "itsgoingd/clockwork": "^2.0",
