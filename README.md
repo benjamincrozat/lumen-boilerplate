@@ -25,6 +25,7 @@ Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a
 - [illuminate/redis](https://github.com/illuminate/redis) and [predis/predis](https://github.com/predis/predis) for Redis based caching and queueing
 - [laravel/tinker](https://github.com/laravel/tinker)
 - [symfony/var-dumper](https://symfony.com/doc/current/components/var_dumper.html) for the `dump()` helper
+- [webpatser/laravel-uuid](https://github.com/webpatser/laravel-uuid), supported by default on User and Post models
 - Requests throttling from Laravel
 
 ## Usage
