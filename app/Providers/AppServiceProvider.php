@@ -14,8 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(PostsRepositoryContract::class, function () {
+        $this->app->bind('posts', function () {
             return new PostsCacheRepository(new PostsRepository());
         });
+
+        $this->app->alias('posts', PostsRepositoryContract::class);
     }
 }

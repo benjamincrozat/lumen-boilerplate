@@ -4,7 +4,6 @@ namespace App\Repositories;
 
 use App\Post;
 use App\Contracts\PostsRepositoryContract;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class PostsRepository implements PostsRepositoryContract
 {
@@ -18,24 +17,24 @@ class PostsRepository implements PostsRepositoryContract
         $this->user = app('auth')->user();
     }
 
-    public function list(array $data) : LengthAwarePaginator
+    public function list(array $data)
     {
         return Post::with('user')->paginate(20);
     }
 
-    public function store(array $data) : void
+    public function store(array $data)
     {
         if (! $this->user->posts()->save(new Post($data))) {
             abort('Error while creating the resource.');
         }
     }
 
-    public function get(string $id) : Post
+    public function get($id)
     {
         return Post::with('user')->findOrFail($id);
     }
 
-    public function update(string $id, array $data) : Post
+    public function update($id, array $data)
     {
         $post = Post::with('user')->findOrFail($id);
 
@@ -46,7 +45,7 @@ class PostsRepository implements PostsRepositoryContract
         return $post;
     }
 
-    public function delete(string $id) : void
+    public function delete($id)
     {
         if (! Post::findOrFail($id)->delete()) {
             abort('Error while deleting the resource.');

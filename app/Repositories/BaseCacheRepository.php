@@ -36,7 +36,7 @@ abstract class BaseCacheRepository
      *
      * @return mixed
      */
-    protected function remember(string $key, \Closure $callback, int $time = 60)
+    protected function remember($key, \Closure $callback, int $time = 60)
     {
         return $this->cache->tags(self::$tag)->remember($key, $time, $callback);
     }

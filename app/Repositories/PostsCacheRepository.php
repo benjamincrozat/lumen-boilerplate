@@ -4,7 +4,6 @@ namespace App\Repositories;
 
 use App\Post;
 use App\Contracts\PostsRepositoryContract;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class PostsCacheRepository extends BaseCacheRepository implements PostsRepositoryContract
 {
@@ -22,26 +21,26 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
         $this->next = $repository;
     }
 
-    public function list(array $data) : LengthAwarePaginator
+    public function list(array $data)
     {
         return $this->remember($this->keyFromData($data), function () use ($data) {
             return $this->next->list($data);
         });
     }
 
-    public function store(array $data) : void
+    public function store(array $data)
     {
         $this->next->store($data);
     }
 
-    public function get(string $id) : Post
+    public function get($id)
     {
         return $this->remember($id, function () use ($id) {
             return $this->next->get($id);
         });
     }
 
-    public function update(string $id, array $data) : Post
+    public function update($id, array $data)
     {
         // The resource has been updated, we no longer need the existing cache.
         $this->cache->tags(self::$tag)->forget($id);
@@ -51,7 +50,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
         });
     }
 
-    public function delete(string $id) : void
+    public function delete($id)
     {
         // The resource has been removed, we can forget about it.
         $this->cache->tags(self::$tag)->forget($id);
