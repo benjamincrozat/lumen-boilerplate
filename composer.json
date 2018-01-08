@@ -23,7 +23,7 @@
     },
     "require-dev": {
         "benjamincrozat/lumen-swagger": "^1.0",
-        "codedungeon/phpunit-result-printer": "^0.4.4",
+        "codedungeon/phpunit-result-printer": "0.*",
         "fzaninotto/faker": "~1.4",
         "itsgoingd/clockwork": "^2.0",
         "laravel/homestead": "^6.5",
