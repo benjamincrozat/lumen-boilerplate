@@ -81,7 +81,7 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function guest_cannot_read_post()
     {
-        $this->json('GET', '/api/v1/posts/1')
+        $this->json('GET', '/api/v1/posts/some-id')
             ->seeStatusCode(401);
     }
 
@@ -110,7 +110,7 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function guest_cannot_update_post()
     {
-        $this->json('PUT', '/api/v1/posts/1')
+        $this->json('PUT', '/api/v1/posts/some-id')
             ->seeStatusCode(401);
     }
 
@@ -189,7 +189,7 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function guest_cannot_delete_post()
     {
-        $this->json('DELETE', '/api/v1/posts/1')
+        $this->json('DELETE', '/api/v1/posts/some-id')
             ->seeStatusCode(401);
     }
 

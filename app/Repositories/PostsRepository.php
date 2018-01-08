@@ -30,12 +30,12 @@ class PostsRepository implements PostsRepositoryContract
         }
     }
 
-    public function get(int $id) : Post
+    public function get(string $id) : Post
     {
         return Post::with('user')->findOrFail($id);
     }
 
-    public function update(int $id, array $data) : Post
+    public function update(string $id, array $data) : Post
     {
         $post = Post::with('user')->findOrFail($id);
 
@@ -46,7 +46,7 @@ class PostsRepository implements PostsRepositoryContract
         return $post;
     }
 
-    public function delete(int $id) : void
+    public function delete(string $id) : void
     {
         if (! Post::findOrFail($id)->delete()) {
             abort('Error while deleting the resource.');

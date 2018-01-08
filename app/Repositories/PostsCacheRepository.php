@@ -34,14 +34,14 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
         $this->next->store($data);
     }
 
-    public function get(int $id) : Post
+    public function get(string $id) : Post
     {
         return $this->remember($id, function () use ($id) {
             return $this->next->get($id);
         });
     }
 
-    public function update(int $id, array $data) : Post
+    public function update(string $id, array $data) : Post
     {
         // The resource has been updated, we no longer need the existing cache.
         $this->cache->tags(self::$tag)->forget($id);
@@ -51,7 +51,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
         });
     }
 
-    public function delete(int $id) : void
+    public function delete(string $id) : void
     {
         // The resource has been removed, we can forget about it.
         $this->cache->tags(self::$tag)->forget($id);

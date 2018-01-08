@@ -14,9 +14,9 @@ interface PostsRepositoryContract
 
     public function store(array $data) : void;
 
-    public function get(int $id) : Post;
+    public function get(string $id) : Post;
 
-    public function update(int $id, array $data) : Post;
+    public function update(string $id, array $data) : Post;
 
-    public function delete(int $id) : void;
+    public function delete(string $id) : void;
 }

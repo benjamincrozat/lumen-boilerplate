@@ -38,12 +38,12 @@ class PostsController extends \App\Http\Controllers\Controller
         return response()->json('', 201);
     }
 
-    public function show(int $id)
+    public function show(string $id)
     {
         return new PostResource($this->posts->get($id));
     }
 
-    public function update(Request $request, int $id)
+    public function update(Request $request, string $id)
     {
         $rules = Post::$rules;
         $rules['title'] .= ',' . $id;
@@ -53,7 +53,7 @@ class PostsController extends \App\Http\Controllers\Controller
         return new PostResource($this->posts->update($id, $request->all()));
     }
 
-    public function destroy(int $id)
+    public function destroy(string $id)
     {
         $this->posts->delete($id);
 
