@@ -1,7 +1,9 @@
 .env
 .env.bak.vessel
-/storage/clockwork
-/vendor
+.idea
+.phpintel
 Homestead.json
 Homestead.yaml
+storage/clockwork
 swagger.json
+vendor
