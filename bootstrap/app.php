@@ -58,6 +58,7 @@ $app->singleton(
 |
 */
 
+$app->configure('cors');
 $app->configure('database');
 
 /*
@@ -70,6 +71,10 @@ $app->configure('database');
 | route or middleware that'll be assigned to some specific routes.
 |
 */
+
+$app->middleware([
+    Barryvdh\Cors\HandleCors::class,
+]);
 
 if (! $app->environment('production')) {
     $app->middleware([
@@ -96,6 +101,7 @@ $app->routeMiddleware([
 $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
+$app->register(Barryvdh\Cors\ServiceProvider::class);
 $app->register(Illuminate\Redis\RedisServiceProvider::class);
 $app->register(Laravel\Tinker\TinkerServiceProvider::class);
 
