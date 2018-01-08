@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    use HasUuid;
+
     /**
      * Validation rules.
      *
@@ -15,6 +18,13 @@ class Post extends Model
         'title'   => 'required|unique:posts,title',
         'content' => 'required',
     ];
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
