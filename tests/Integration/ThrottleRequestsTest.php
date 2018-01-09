@@ -9,13 +9,13 @@ class ThrottleRequestsTest extends TestCase
     {
         Carbon::setTestNow(null);
 
-        Route::get('/', ['middleware' => 'throttle:2,1']);
+        Route::get('/api/v1/test', ['middleware' => 'throttle:2,1']);
 
-        $this->json('GET', '/')
+        $this->json('GET', '/test')
             ->seeHeader('X-RateLimit-Limit', 2)
             ->seeHeader('X-RateLimit-Remaining', 1);
 
-        $this->json('GET', '/')
+        $this->json('GET', '/test')
             ->seeHeader('X-RateLimit-Limit', 2)
             ->seeHeader('X-RateLimit-Remaining', 0);
 
@@ -23,7 +23,7 @@ class ThrottleRequestsTest extends TestCase
             Carbon::now()->addSeconds(58)
         );
 
-        $this->json('GET', '/')
+        $this->json('GET', '/test')
             ->seeStatusCode(429);
     }
 }

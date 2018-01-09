@@ -8,6 +8,13 @@ abstract class TestCase extends Laravel\Lumen\Testing\TestCase
     use DatabaseMigrations, DatabaseTransactions;
 
     /**
+     * The base URL to use while testing the application.
+     *
+     * @var string
+     */
+    protected $baseUrl = '/api/v1';
+
+    /**
      * Creates the application.
      *
      * @return \Laravel\Lumen\Application

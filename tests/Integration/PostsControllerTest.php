@@ -8,7 +8,7 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function guest_cannot_list_posts()
     {
-        $this->json('GET', '/api/v1/posts')
+        $this->json('GET', '/posts')
             ->seeStatusCode(401);
     }
 
@@ -16,7 +16,7 @@ class PostsControllerTest extends TestCase
     public function user_can_list_posts()
     {
         $this->actingAs(factory(User::class)->create())
-            ->json('GET', '/api/v1/posts')
+            ->json('GET', '/posts')
             // Validate that a paginator is returned.
             ->seeJsonStructure(['data', 'links', 'meta']);
     }
@@ -24,7 +24,7 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function guest_cannot_store_post()
     {
-        $this->json('POST', '/api/v1/posts')
+        $this->json('POST', '/posts')
             ->seeStatusCode(401);
     }
 
@@ -32,7 +32,7 @@ class PostsControllerTest extends TestCase
     public function user_can_store_post()
     {
         $this->actingAs(factory(User::class)->create())
-            ->json('POST', '/api/v1/posts', [
+            ->json('POST', '/posts', [
                 'title'   => 'Lorem',
                 'content' => 'Ipsum',
             ])
@@ -43,7 +43,7 @@ class PostsControllerTest extends TestCase
     public function user_cannot_store_post_without_title()
     {
         $this->actingAs(factory(User::class)->create())
-            ->json('POST', '/api/v1/posts', [
+            ->json('POST', '/posts', [
                 'content' => 'Ipsum',
             ])
             ->seeValidationError('title');
@@ -61,7 +61,7 @@ class PostsControllerTest extends TestCase
         ]);
 
         $this->actingAs($user)
-            ->json('POST', '/api/v1/posts', [
+            ->json('POST', '/posts', [
                 'title'   => 'Lorem',
                 'content' => 'Ipsum',
             ])
@@ -72,7 +72,7 @@ class PostsControllerTest extends TestCase
     public function user_cannot_store_post_without_content()
     {
         $this->actingAs(factory(User::class)->create())
-            ->json('POST', '/api/v1/posts', [
+            ->json('POST', '/posts', [
                 'title' => 'Lorem',
             ])
             ->seeValidationError('content');
@@ -81,7 +81,7 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function guest_cannot_read_post()
     {
-        $this->json('GET', '/api/v1/posts/some-id')
+        $this->json('GET', '/posts/some-id')
             ->seeStatusCode(401);
     }
 
@@ -93,7 +93,7 @@ class PostsControllerTest extends TestCase
         $post = factory(Post::class)->create(['user_id' => $user->id]);
 
         $this->actingAs($user)
-            ->json('GET', '/api/v1/posts/' . $post->id)
+            ->json('GET', '/posts/' . $post->id)
             ->seeJsonStructure([
                 // This relationship should be loaded.
                 'data' => ['user'],
@@ -110,7 +110,7 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function guest_cannot_update_post()
     {
-        $this->json('PUT', '/api/v1/posts/some-id')
+        $this->json('PUT', '/posts/some-id')
             ->seeStatusCode(401);
     }
 
@@ -125,7 +125,7 @@ class PostsControllerTest extends TestCase
         $new_content = 'World';
 
         $this->actingAs($user)
-            ->json('PUT', '/api/v1/posts/' . $post->id, [
+            ->json('PUT', '/posts/' . $post->id, [
                 'title'   => $new_title,
                 'content' => $new_content,
             ])
@@ -147,7 +147,7 @@ class PostsControllerTest extends TestCase
         $post = factory(Post::class)->create(['user_id' => $user->id]);
 
         $this->actingAs($user)
-            ->json('PUT', '/api/v1/posts/' . $post->id, [
+            ->json('PUT', '/posts/' . $post->id, [
                 'content' => 'Foo',
             ])
             ->seeValidationError('title');
@@ -165,7 +165,7 @@ class PostsControllerTest extends TestCase
         ]);
 
         $this->actingAs($user)
-            ->json('PUT', '/api/v1/posts/' . $first_post->id, [
+            ->json('PUT', '/posts/' . $first_post->id, [
                 'title'   => $second_post->title,
                 'content' => 'Bar',
             ])
@@ -180,7 +180,7 @@ class PostsControllerTest extends TestCase
         $post = factory(Post::class)->create(['user_id' => $user->id]);
 
         $this->actingAs($user)
-            ->json('PUT', '/api/v1/posts/' . $post->id, [
+            ->json('PUT', '/posts/' . $post->id, [
                 'title' => 'Foo',
             ])
             ->seeValidationError('content');
@@ -189,7 +189,7 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function guest_cannot_delete_post()
     {
-        $this->json('DELETE', '/api/v1/posts/some-id')
+        $this->json('DELETE', '/posts/some-id')
             ->seeStatusCode(401);
     }
 
@@ -199,7 +199,7 @@ class PostsControllerTest extends TestCase
         $user = factory(User::class)->create();
 
         $this->actingAs($user)
-            ->json('DELETE', '/api/v1/posts/' . factory(Post::class)->create(['user_id' => $user->id])->id)
+            ->json('DELETE', '/posts/' . factory(Post::class)->create(['user_id' => $user->id])->id)
             ->seeStatusCode(204);
     }
 }

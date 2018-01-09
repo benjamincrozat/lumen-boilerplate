@@ -7,7 +7,7 @@ class UserControllerTest extends TestCase
     /** @test */
     public function user_have_to_be_authenticated()
     {
-        $this->json('GET', '/api/v1/user')
+        $this->json('GET', '/user')
             ->seeStatusCode(401);
     }
 
@@ -20,7 +20,7 @@ class UserControllerTest extends TestCase
         $user = User::with('posts')->first();
 
         $this->actingAs($user)
-            ->json('GET', '/api/v1/user')
+            ->json('GET', '/user')
             ->seeJsonStructure([
                 'data' => ['posts'],
             ])
