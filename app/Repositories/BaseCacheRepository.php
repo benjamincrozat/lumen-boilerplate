@@ -5,7 +5,7 @@ namespace App\Repositories;
 abstract class BaseCacheRepository
 {
     /**
-     * This variable has to be set in order to tag keys and values in the cache.
+     * Cache tag.
      *
      * @var string
      */
@@ -26,7 +26,7 @@ abstract class BaseCacheRepository
     /**
      * Wrapper around Illuminate\Cache\Repository::remember() to keep the code DRY.
      *
-     * @param mixed    $key
+     * @param string   $key
      * @param \Closure $callback
      * @param int      $time
      *

@@ -7,6 +7,9 @@ use App\Http\Resources\UserResource;
 
 class UserController extends \App\Http\Controllers\Controller
 {
+    /**
+     * Constructor.
+     */
     public function __construct()
     {
         // As routes groups can't have multiple middlewares

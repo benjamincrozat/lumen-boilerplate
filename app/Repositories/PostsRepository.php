@@ -45,7 +45,7 @@ class PostsRepository implements PostsRepositoryContract
     /**
      * Get a post.
      *
-     * @param mixed $id
+     * @param string $id
      */
     public function get($id)
     {
@@ -55,8 +55,8 @@ class PostsRepository implements PostsRepositoryContract
     /**
      * Update a post.
      *
-     * @param mixed $id
-     * @param array $data
+     * @param string $id
+     * @param array  $data
      */
     public function update($id, array $data)
     {
@@ -72,7 +72,7 @@ class PostsRepository implements PostsRepositoryContract
     /**
      * Delete a post.
      *
-     * @param mixed $id
+     * @param string $id
      */
     public function delete($id)
     {

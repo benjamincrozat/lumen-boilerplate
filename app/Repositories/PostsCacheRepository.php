@@ -26,8 +26,6 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
      */
     public function __construct(PostsRepository $repository)
     {
-        parent::__construct();
-
         $this->next = $repository;
     }
 
@@ -58,7 +56,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     /**
      * Get a post from cache or database if it doesn't exist.
      *
-     * @param mixed $id
+     * @param string $id
      *
      * @return App\Post
      */
@@ -72,15 +70,15 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     /**
      * Remove a post from cache, update it and cache it again.
      *
-     * @param mixed $id
-     * @param array $data
+     * @param string $id
+     * @param array  $data
      *
      * @return mixed
      */
     public function update($id, array $data)
     {
         // The resource has been updated, we no longer need the existing cache.
-        $this->cache->tags(self::$tag)->forget($id);
+        app('cache')->tags(self::$tag)->forget($id);
 
         return $this->remember($id, function () use ($id, $data) {
             return $this->next->update($id, $data);
@@ -90,12 +88,12 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     /**
      * Delete a post from cache and database.
      *
-     * @param mixed $id
+     * @param string $id
      */
     public function delete($id)
     {
         // The resource has been removed, we can forget about it.
-        $this->cache->tags(self::$tag)->forget($id);
+        app('cache')->tags(self::$tag)->forget($id);
 
         $this->next->delete($id);
     }
