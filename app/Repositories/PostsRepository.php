@@ -12,16 +12,29 @@ class PostsRepository implements PostsRepositoryContract
      */
     protected $user;
 
+    /**
+     * Constructor.
+     */
     public function __construct()
     {
         $this->user = app('auth')->user();
     }
 
+    /**
+     * Get posts.
+     *
+     * @param array $data
+     */
     public function list(array $data)
     {
         return Post::with('user')->paginate(20);
     }
 
+    /**
+     * Store a post.
+     *
+     * @param array $data
+     */
     public function store(array $data)
     {
         if (! $this->user->posts()->save(new Post($data))) {
@@ -29,11 +42,22 @@ class PostsRepository implements PostsRepositoryContract
         }
     }
 
+    /**
+     * Get a post.
+     *
+     * @param mixed $id
+     */
     public function get($id)
     {
         return Post::with('user')->findOrFail($id);
     }
 
+    /**
+     * Update a post.
+     *
+     * @param mixed $id
+     * @param array $data
+     */
     public function update($id, array $data)
     {
         $post = Post::with('user')->findOrFail($id);
@@ -45,6 +69,11 @@ class PostsRepository implements PostsRepositoryContract
         return $post;
     }
 
+    /**
+     * Delete a post.
+     *
+     * @param mixed $id
+     */
     public function delete($id)
     {
         if (! Post::findOrFail($id)->delete()) {

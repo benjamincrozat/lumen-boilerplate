@@ -14,6 +14,13 @@ class UserController extends \App\Http\Controllers\Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Display authenticated user.
+     *
+     * @param Request $request
+     *
+     * @return UserResource
+     */
     public function __invoke(Request $request)
     {
         return new UserResource($request->user());

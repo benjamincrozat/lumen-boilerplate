@@ -2,8 +2,6 @@
 
 namespace App\Repositories;
 
-use Illuminate\Cache\CacheManager;
-
 abstract class BaseCacheRepository
 {
     /**
@@ -14,19 +12,13 @@ abstract class BaseCacheRepository
     public static $tag;
 
     /**
-     * @var CacheManager
-     */
-    protected $cache;
-
-    public function __construct()
-    {
-        $this->cache = app('cache');
-    }
-
-    /**
      * Generate a cache key from an array usually coming from Illuminate\Http\Request::all().
+     *
+     * @param array $data
+     *
+     * @return string
      */
-    public static function keyFromData(array $data) : string
+    public static function keyFromData(array $data)
     {
         return md5(serialize($data));
     }
@@ -34,10 +26,14 @@ abstract class BaseCacheRepository
     /**
      * Wrapper around Illuminate\Cache\Repository::remember() to keep the code DRY.
      *
+     * @param mixed    $key
+     * @param \Closure $callback
+     * @param int      $time
+     *
      * @return mixed
      */
     protected function remember($key, \Closure $callback, $time = 60)
     {
-        return $this->cache->tags(self::$tag)->remember($key, $time, $callback);
+        return app('cache')->tags(self::$tag)->remember($key, $time, $callback);
     }
 }

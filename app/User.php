@@ -40,6 +40,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'api_token',
     ];
 
+    /**
+     * Return associated posts.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function posts()
     {
         return $this->hasMany(Post::class);

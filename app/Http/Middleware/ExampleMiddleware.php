@@ -9,7 +9,8 @@ class ExampleMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $reques
+     * @param Closure                  $next
      *
      * @return mixed
      */
