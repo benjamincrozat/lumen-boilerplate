@@ -24,7 +24,14 @@ abstract class TestCase extends Laravel\Lumen\Testing\TestCase
         return require __DIR__ . '/../bootstrap/app.php';
     }
 
-    protected function seeValidationError(string $field) : self
+    /**
+     * Assert that a validation error exists for a given field.
+     *
+     * @param string $field
+     *
+     * @return self
+     */
+    protected function seeValidationError(string $field)
     {
         return $this->seeJsonStructure([$field])
             ->seeStatusCode(422);
