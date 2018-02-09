@@ -36,7 +36,7 @@ class Handler extends ExceptionHandler
     }
 
     /**
-     * Render an exception into an HTTP response.
+     * Render an exception.
      *
      * @param \Illuminate\Http\Request $request
      * @param \Exception               $exception
@@ -45,21 +45,44 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        // Render as HTML if the client didn't request JSON.
         if (! $request->wantsJson()) {
             return parent::render($request, $e);
         }
 
-        if (method_exists($e, 'getStatusCode')) {
-            $code = $e->getStatusCode();
-        } elseif (method_exists($e, 'getCode') && 0 !== $e->getCode()) {
-            $code = $e->getCode();
-        } else {
-            $code = 500;
+        // Render as JSON if the client requested JSON.
+        return $this->jsonException($e);
+    }
+
+    public function jsonException(Exception $e)
+    {
+        if ($e instanceof \Illuminate\Validation\ValidationException) {
+            return response()->json($e->errors(), $e->status);
         }
 
         return response()->json([
-            'code'    => $code,
+            'code'    => $code = $this->getExceptionCode($e),
             'message' => $e->getMessage(),
         ], $code);
+    }
+
+    /**
+     * Get code associated with a given exception.
+     *
+     * @param Exception $e
+     *
+     * @return int
+     */
+    protected function getExceptionCode(Exception $e)
+    {
+        if (method_exists($e, 'getStatusCode')) {
+            return $e->getStatusCode();
+        }
+
+        if (method_exists($e, 'getCode') && 0 !== $e->getCode()) {
+            return $e->getCode();
+        }
+
+        return 500;
     }
 }
