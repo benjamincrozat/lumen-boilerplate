@@ -73,7 +73,7 @@ $app->configure('database');
 */
 
 $app->middleware([
-    Barryvdh\Cors\HandleCors::class,
+    Spatie\Cors\Cors::class,
 ]);
 
 if (! $app->environment('production')) {
@@ -98,7 +98,7 @@ $app->routeMiddleware([
 |
 */
 
-$app->register(Barryvdh\Cors\ServiceProvider::class);
+$app->register(Spatie\Cors\CorsServiceProvider::class);
 $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
