@@ -17,7 +17,7 @@
         "laravel/lumen-framework": "~5.6",
         "laravel/tinker": "^1.0",
         "predis/predis": "^1.1",
-        "spatie/laravel-cors": "dev-master",
+        "spatie/laravel-cors": "^1.0",
         "vlucas/phpdotenv": "~2.2",
         "webpatser/laravel-uuid": "^3.0"
     },
@@ -29,7 +29,7 @@
         "laravel/homestead": "^6.5",
         "mockery/mockery": "~1.0",
         "nunomaduro/collision": "^1.1",
-        "phpunit/phpunit": "~7.0",
+        "phpunit/phpunit": "^6.0",
         "shipping-docker/vessel": "^2.1",
         "symfony/var-dumper": "^4.0"
     },
