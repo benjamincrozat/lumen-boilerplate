@@ -11,16 +11,10 @@
     ],
     "license": "MIT",
     "type": "project",
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../laravel-cors"
-        }
-    ],
     "require": {
         "php": ">=7.1",
-        "illuminate/redis": "^5.6",
-        "laravel/lumen-framework": "5.6.*",
+        "illuminate/redis": "~5.6",
+        "laravel/lumen-framework": "~5.6",
         "laravel/tinker": "^1.0",
         "predis/predis": "^1.1",
         "spatie/laravel-cors": "dev-master",
@@ -35,7 +29,7 @@
         "laravel/homestead": "^6.5",
         "mockery/mockery": "~1.0",
         "nunomaduro/collision": "^1.1",
-        "phpunit/phpunit": "~6.0",
+        "phpunit/phpunit": "~7.0",
         "shipping-docker/vessel": "^2.1",
         "symfony/var-dumper": "^4.0"
     },
