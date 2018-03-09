@@ -8,16 +8,6 @@ use App\Http\Resources\UserResource;
 class UserController extends \App\Http\Controllers\Controller
 {
     /**
-     * Constructor.
-     */
-    public function __construct()
-    {
-        // As routes groups can't have multiple middlewares
-        // in Lumen, we have to set this one here.
-        $this->middleware('auth');
-    }
-
-    /**
      * Display authenticated user.
      *
      * @param Request $request

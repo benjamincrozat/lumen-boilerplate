@@ -24,6 +24,8 @@ class PostsRepository implements PostsRepositoryContract
      * Get posts.
      *
      * @param array $data
+     *
+     * @return Paginator
      */
     public function list(array $data)
     {
@@ -34,6 +36,8 @@ class PostsRepository implements PostsRepositoryContract
      * Store a post.
      *
      * @param array $data
+     *
+     * @return Post
      */
     public function store(array $data)
     {
@@ -46,6 +50,8 @@ class PostsRepository implements PostsRepositoryContract
      * Get a post.
      *
      * @param string $id
+     *
+     * @return Post
      */
     public function get($id)
     {
@@ -57,6 +63,8 @@ class PostsRepository implements PostsRepositoryContract
      *
      * @param string $id
      * @param array  $data
+     *
+     * @return Post
      */
     public function update($id, array $data)
     {

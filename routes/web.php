@@ -12,7 +12,7 @@
 */
 
 $router->group([
-    'middleware'  => 'throttle',
+    'middleware'  => 'auth',
     'namespace'   => 'Api\v1',
     'prefix'      => '/api/v1',
 ], function () use ($router) {

@@ -30,11 +30,11 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     }
 
     /**
-     * Get posts from cache or database if it doesn't exist.
+     * Get posts.
      *
      * @param array $data
      *
-     * @return \Illuminate\Pagination\LengthAwarePaginator
+     * @return Paginator
      */
     public function list(array $data)
     {
@@ -47,6 +47,8 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
      * Store a post.
      *
      * @param array $data
+     *
+     * @return Post
      */
     public function store(array $data)
     {
@@ -54,11 +56,11 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     }
 
     /**
-     * Get a post from cache or database if it doesn't exist.
+     * Get a post.
      *
      * @param string $id
      *
-     * @return App\Post
+     * @return Post
      */
     public function get($id)
     {
@@ -68,12 +70,12 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     }
 
     /**
-     * Remove a post from cache, update it and cache it again.
+     * Update a post.
      *
      * @param string $id
      * @param array  $data
      *
-     * @return mixed
+     * @return Post
      */
     public function update($id, array $data)
     {
@@ -86,7 +88,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     }
 
     /**
-     * Delete a post from cache and database.
+     * Delete a post.
      *
      * @param string $id
      */
