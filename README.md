@@ -70,20 +70,19 @@ curl --request GET http://example.test/api/v1/user?api_token=fIj2rTFTWbB2UO2ZrVh
 
 ## Sample code
 
-Lumen Boilerplate integrates basic CRUD for blog posts as an example. Here are all the fancy features and design patterns I use for the cleanest and most performant implementation possible:
-- [Caching](https://lumen.laravel.com/docs/5.5/cache)
+Lumen Boilerplate integrates basic CRUD for blog posts as an example. Here are all the fancy features and design patterns I use for the cleanest implementation possible:
+- [Caching](https://lumen.laravel.com/docs/cache)
 - [Decorator design pattern](https://www.google.com/search?q=decorator+design+pattern) (used in repositories for elegant caching)
-- [Dependency injection design pattern](https://laravel.com/docs/5.5/container#introduction)
-- [Eloquent](https://laravel.com/docs/5.5/eloquent) (see the `app` folder for the models)
-- [JSON resources](https://laravel.com/docs/5.5/eloquent-resources) (see the `app/Http/Resources` folder)
+- [Dependency injection design pattern](https://laravel.com/docs/container#introduction)
+- [Eloquent](https://laravel.com/docs/eloquent) (see the `app` folder for the models)
+- [JSON resources](https://laravel.com/docs/eloquent-resources) (see the `app/Http/Resources` folder)
 - [Repository design pattern](https://www.google.com/search?q=repository+design+pattern) (see the `app/Repositories` folder and `app/Contracts/PostsRepositoryContract.php`)
-- [Service container](https://lumen.laravel.com/docs/5.5/container) (see `app/Providers/AppServiceProvider.php`)
-
-Want to add another resource to your API? Duplicate the existing code and deliver in no time!
+- [Service container](https://lumen.laravel.com/docs/container) (see `app/Providers/AppServiceProvider.php`)
+- Example files that you can quickly duplicate
 
 ## Testing
 
-It's --probably-- a good idea to test your code. Lumen Boilerplate comes with two passing tests to show you the way.
+It's *probably* a good idea to test your code. Lumen Boilerplate comes with tests to show you the way.
 
 ```bash
 # Run all tests.
@@ -106,7 +105,7 @@ php vendor/bin/phpunit tests/Integration/UserControllerTest.php --filter user_ca
 ```
 
 Here are some of my thoughts on testing:
-- Unit Tests don't ensure a working app. They should only back up Integration Tests when needed. Don't waste your time;
+- Unit Tests don't ensure a working app. Good Integration Tests make your app a hell lot more reliable;
 - Use Facades inside your tests to make mocking smoother;
 - Be as exhaustive as possible.
 
