@@ -14,7 +14,7 @@ interface PostsRepositoryContract
      *
      * @return Paginator
      */
-    public function list(array $data);
+    public function index(array $data);
 
     /**
      * Store a post.
@@ -32,7 +32,7 @@ interface PostsRepositoryContract
      *
      * @return Post
      */
-    public function get($id);
+    public function show($id);
 
     /**
      * Update a post.
@@ -49,5 +49,5 @@ interface PostsRepositoryContract
      *
      * @param string $id
      */
-    public function delete($id);
+    public function destroy($id);
 }

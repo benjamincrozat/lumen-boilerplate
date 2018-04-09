@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\v1;
 use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Resources\PostResource;
-use App\Contracts\PostsRepositoryContract;
 use App\Repositories\PostsCacheRepository;
 
 class PostsController extends \App\Http\Controllers\Controller
@@ -16,17 +15,15 @@ class PostsController extends \App\Http\Controllers\Controller
     protected $posts;
 
     /**
-     * Constructor.
-     *
-     * @param PostsRepositoryContract $posts
+     * Create a new controller instance.
      */
-    public function __construct(PostsRepositoryContract $posts)
+    public function __construct()
     {
-        $this->posts = $posts;
+        $this->posts = app('posts');
     }
 
     /**
-     * Display a listing of the resource.
+     * Return a listing of the resource.
      *
      * @param Request $request
      *
@@ -34,7 +31,7 @@ class PostsController extends \App\Http\Controllers\Controller
      */
     public function index(Request $request)
     {
-        return PostResource::collection($this->posts->list($request->all()));
+        return PostResource::collection($this->posts->index($request->all()));
     }
 
     /**
@@ -54,7 +51,7 @@ class PostsController extends \App\Http\Controllers\Controller
     }
 
     /**
-     * Display the specified resource.
+     * Return the specified resource.
      *
      * @param string $id
      *
@@ -62,7 +59,7 @@ class PostsController extends \App\Http\Controllers\Controller
      */
     public function show($id)
     {
-        return new PostResource($this->posts->get($id));
+        return new PostResource($this->posts->show($id));
     }
 
     /**
@@ -92,7 +89,7 @@ class PostsController extends \App\Http\Controllers\Controller
      */
     public function destroy($id)
     {
-        $this->posts->delete($id);
+        $this->posts->destroy($id);
 
         return response()->json('', 204);
     }

@@ -36,10 +36,10 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
      *
      * @return Paginator
      */
-    public function list(array $data)
+    public function index(array $data)
     {
         return $this->remember($this->keyFromData($data), function () use ($data) {
-            return $this->next->list($data);
+            return $this->next->index($data);
         });
     }
 
@@ -62,10 +62,10 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
      *
      * @return Post
      */
-    public function get($id)
+    public function show($id)
     {
         return $this->remember($id, function () use ($id) {
-            return $this->next->get($id);
+            return $this->next->show($id);
         });
     }
 
@@ -92,11 +92,11 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
      *
      * @param string $id
      */
-    public function delete($id)
+    public function destroy($id)
     {
         // The resource has been removed, we can forget about it.
         app('cache')->tags(self::$tag)->forget($id);
 
-        $this->next->delete($id);
+        $this->next->destroy($id);
     }
 }

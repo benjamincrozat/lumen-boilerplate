@@ -8,7 +8,7 @@ use App\Http\Resources\UserResource;
 class UserController extends \App\Http\Controllers\Controller
 {
     /**
-     * Display authenticated user.
+     * Return authenticated user.
      *
      * @param Request $request
      *

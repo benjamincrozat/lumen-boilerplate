@@ -27,7 +27,7 @@ class PostsRepository implements PostsRepositoryContract
      *
      * @return Paginator
      */
-    public function list(array $data)
+    public function index(array $data)
     {
         return Post::with('user')->paginate(20);
     }
@@ -53,7 +53,7 @@ class PostsRepository implements PostsRepositoryContract
      *
      * @return Post
      */
-    public function get($id)
+    public function show($id)
     {
         return Post::with('user')->findOrFail($id);
     }
@@ -82,7 +82,7 @@ class PostsRepository implements PostsRepositoryContract
      *
      * @param string $id
      */
-    public function delete($id)
+    public function destroy($id)
     {
         if (! Post::findOrFail($id)->delete()) {
             abort('Error while deleting the resource.');
