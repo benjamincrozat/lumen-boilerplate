@@ -12,15 +12,18 @@ abstract class BaseCacheRepository
     public static $tag;
 
     /**
-     * Generate a cache key from an array usually coming from Illuminate\Http\Request::all().
-     *
-     * @param array $data
-     *
-     * @return string
+     * @var mixed
      */
-    public static function keyFromData(array $data)
+    protected $next;
+
+    /**
+     * Create a new cache repository instance.
+     *
+     * @param mixed $repository
+     */
+    public function __construct($repository)
     {
-        return md5(serialize($data));
+        $this->next = $repository;
     }
 
     /**
@@ -32,8 +35,28 @@ abstract class BaseCacheRepository
      *
      * @return mixed
      */
-    protected function remember($key, \Closure $callback, $time = 60)
+    protected function remember($key, \Closure $callback)
     {
-        return app('cache')->tags(self::$tag)->remember($key, $time, $callback);
+        return $this->tagged()->rememberForever($key, $callback);
+    }
+
+    /**
+     * Flush tagged items.
+     */
+    protected function flush()
+    {
+        $this->tagged()->flush();
+
+        event('cache.tag_flushed', [self::$tag]);
+    }
+
+    /**
+     * Return tagged cache.
+     *
+     * @return \Illuminate\Cache\TaggedCache
+     */
+    protected function tagged()
+    {
+        return app('cache')->tags(self::$tag);
     }
 }

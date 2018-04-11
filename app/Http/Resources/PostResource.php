@@ -22,7 +22,7 @@ class PostResource extends \Illuminate\Http\Resources\Json\Resource
             'updated_at' => (string) $this->updated_at, // 1
             'title'      => $this->title,
             'content'    => $this->content,
-            'user'       => new UserResource($this->whenLoaded('user')),
+            'user'       => new UserResource($this->user),
         ];
     }
 }

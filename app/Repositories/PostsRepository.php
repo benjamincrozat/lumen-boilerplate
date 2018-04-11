@@ -29,7 +29,7 @@ class PostsRepository implements PostsRepositoryContract
      */
     public function index(array $data)
     {
-        return Post::with('user')->paginate(20);
+        return Post::latest()->paginate(20);
     }
 
     /**
@@ -41,34 +41,36 @@ class PostsRepository implements PostsRepositoryContract
      */
     public function store(array $data)
     {
-        if (! $this->user->posts()->save(new Post($data))) {
+        if (! ($post = $this->user->posts()->save(new Post($data)))) {
             abort('Error while creating the resource.');
         }
+
+        return $post;
     }
 
     /**
      * Get a post.
      *
-     * @param string $id
+     * @param string|int $id
      *
      * @return Post
      */
     public function show($id)
     {
-        return Post::with('user')->findOrFail($id);
+        return Post::findOrFail($id);
     }
 
     /**
      * Update a post.
      *
-     * @param string $id
-     * @param array  $data
+     * @param string|int $id
+     * @param array      $data
      *
      * @return Post
      */
     public function update($id, array $data)
     {
-        $post = Post::with('user')->findOrFail($id);
+        $post = Post::findOrFail($id);
 
         if (! $post->update($data)) {
             abort('Error while updating the resource.');
@@ -80,12 +82,12 @@ class PostsRepository implements PostsRepositoryContract
     /**
      * Delete a post.
      *
-     * @param string $id
+     * @param string|int $id
+     *
+     * @return bool
      */
     public function destroy($id)
     {
-        if (! Post::findOrFail($id)->delete()) {
-            abort('Error while deleting the resource.');
-        }
+        return Post::findOrFail($id)->delete();
     }
 }

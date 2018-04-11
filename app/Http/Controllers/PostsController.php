@@ -45,9 +45,11 @@ class PostsController extends \App\Http\Controllers\Controller
     {
         $this->validate($request, Post::$rules);
 
-        $this->posts->store($request->all());
-
-        return response()->json('', 201);
+        return (new PostResource(
+            $this->posts->store($request->all())
+        ))
+            ->toResponse($request)
+            ->setStatusCode(201);
     }
 
     /**

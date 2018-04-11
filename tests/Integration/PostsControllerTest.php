@@ -31,12 +31,16 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function user_can_store_post()
     {
+        $this->expectsEvents(['cache.tag_flushed']);
+
         $this->actingAs(factory(User::class)->create())
-            ->json('POST', '/posts', [
+            ->json('POST', '/posts', $attributes = [
                 'title'   => 'Lorem',
                 'content' => 'Ipsum',
             ])
-            ->seeStatusCode(201);
+            ->seeStatusCode(201)
+            ->seeJsonStructure(['data' => ['id', 'created_at', 'updated_at', 'title', 'content', 'user']])
+            ->seeJson($attributes);
     }
 
     /** @test */

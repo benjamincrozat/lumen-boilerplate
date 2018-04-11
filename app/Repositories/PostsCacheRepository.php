@@ -15,21 +15,6 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     public static $tag = Post::class;
 
     /**
-     * @var PostsRepository
-     */
-    protected $next;
-
-    /**
-     * Constructor.
-     *
-     * @param PostsRepository $repository
-     */
-    public function __construct(PostsRepository $repository)
-    {
-        $this->next = $repository;
-    }
-
-    /**
      * Get posts.
      *
      * @param array $data
@@ -38,7 +23,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
      */
     public function index(array $data)
     {
-        return $this->remember($this->keyFromData($data), function () use ($data) {
+        return $this->remember(md5(serialize($data)), function () use ($data) {
             return $this->next->index($data);
         });
     }
@@ -52,7 +37,9 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
      */
     public function store(array $data)
     {
-        $this->next->store($data);
+        $this->flush();
+
+        return $this->next->store($data);
     }
 
     /**
@@ -79,8 +66,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
      */
     public function update($id, array $data)
     {
-        // The resource has been updated, we no longer need the existing cache.
-        app('cache')->tags(self::$tag)->forget($id);
+        $this->flush();
 
         return $this->remember($id, function () use ($id, $data) {
             return $this->next->update($id, $data);
@@ -94,8 +80,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
      */
     public function destroy($id)
     {
-        // The resource has been removed, we can forget about it.
-        app('cache')->tags(self::$tag)->forget($id);
+        $this->flush();
 
         $this->next->destroy($id);
     }
