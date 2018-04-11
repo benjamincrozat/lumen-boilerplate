@@ -2,8 +2,13 @@
 
 namespace App\Traits;
 
-use Webpatser\Uuid\Uuid;
+use Illuminate\Support\Str;
 
+/**
+ * This trait adds UUID generation to your primary key
+ * everytime a new model is created. Make sure your
+ * column is property configured as an UUID type.
+ */
 trait HasUuid
 {
     /**
@@ -14,7 +19,7 @@ trait HasUuid
         parent::boot();
 
         self::creating(function ($model) {
-            $model->{$model->getKeyName()} = (string) Uuid::generate(4);
+            $model->{$model->getKeyName()} = Str::uuid();
         });
     }
 }
