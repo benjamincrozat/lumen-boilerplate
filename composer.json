@@ -47,6 +47,10 @@
     "scripts": {
         "post-root-package-install": [
             "php -r \"copy('.env.example', '.env');\""
+        ],
+        "post-autoload-dump": [
+            "php artisan ide-helper:generate",
+            "php artisan ide-helper:meta"
         ]
     },
     "minimum-stability": "dev",
