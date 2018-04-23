@@ -11,8 +11,6 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Post::class, 50)->create([
-            'user_id' => User::first()->id,
-        ]);
+        factory(Post::class, 50)->create(['user_id' => User::first()->id]);
     }
 }

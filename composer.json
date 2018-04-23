@@ -17,11 +17,12 @@
         "laravel/lumen-framework": "~5.6",
         "laravel/tinker": "^1.0",
         "predis/predis": "^1.1",
+        "ramsey/uuid": "^3.7",
         "spatie/laravel-cors": "^1.0",
-        "vlucas/phpdotenv": "~2.2",
-        "ramsey/uuid": "^3.7"
+        "vlucas/phpdotenv": "~2.2"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.4",
         "benjamincrozat/lumen-swagger": "^1.0",
         "codedungeon/phpunit-result-printer": "0.*",
         "fzaninotto/faker": "~1.4",
