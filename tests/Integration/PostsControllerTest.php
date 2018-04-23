@@ -19,6 +19,12 @@ class PostsControllerTest extends TestCase
             ->json('GET', '/posts')
             // Validate that a paginator is returned.
             ->seeJsonStructure(['data', 'links', 'meta']);
+
+        $this->assertTrue(
+            app('posts')->has(
+                app('request')->all()
+            )
+        );
     }
 
     /** @test */
@@ -106,6 +112,10 @@ class PostsControllerTest extends TestCase
                 'title'      => $post->title,
                 'content'    => $post->content,
             ]);
+
+        $this->assertTrue(
+            app('posts')->has($post->id)
+        );
     }
 
     /** @test */

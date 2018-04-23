@@ -27,8 +27,16 @@ abstract class BaseCacheRepository
     }
 
     /**
-     * Wrapper around Illuminate\Cache\Repository::remember() to keep the code DRY.
+     * @param string|array $key
      *
+     * @return bool
+     */
+    public function has($key)
+    {
+        return $this->tagged()->has($this->key($key));
+    }
+
+    /**
      * @param string   $key
      * @param \Closure $callback
      * @param int      $time
@@ -37,11 +45,11 @@ abstract class BaseCacheRepository
      */
     protected function remember($key, \Closure $callback, $time = 60)
     {
-        return $this->tagged()->remember($key, $time, $callback);
+        return $this->tagged()->remember($this->key($key), $time, $callback);
     }
 
     /**
-     * Flush tagged items.
+     * Flush the cache only for the current tag.
      */
     protected function flush()
     {
@@ -59,5 +67,21 @@ abstract class BaseCacheRepository
             self::$tag,
             optional(app('auth')->user())->id,
         ]);
+    }
+
+    /**
+     * Normalize a given key.
+     *
+     * @param string|array $key
+     *
+     * @return string
+     */
+    protected function key($key)
+    {
+        if (is_array($key)) {
+            $key = md5(serialize($key));
+        }
+
+        return $key;
     }
 }
