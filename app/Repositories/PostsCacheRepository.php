@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Post;
 use App\Contracts\PostsRepositoryContract;
 
 /**
@@ -11,18 +10,12 @@ use App\Contracts\PostsRepositoryContract;
 class PostsCacheRepository extends BaseCacheRepository implements PostsRepositoryContract
 {
     /**
-     * Cache tag.
-     *
-     * @var string
+     * {@inheritdoc}
      */
-    public static $tag = Post::class;
+    protected $tag = 'posts';
 
     /**
-     * Get posts.
-     *
-     * @param array $data
-     *
-     * @return \Illuminate\Contracts\Pagination\Paginator
+     * {@inheritdoc}
      */
     public function index(array $data)
     {
@@ -32,11 +25,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     }
 
     /**
-     * Store a post.
-     *
-     * @param array $data
-     *
-     * @return Post
+     * {@inheritdoc}
      */
     public function store(array $data)
     {
@@ -46,11 +35,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     }
 
     /**
-     * Get a post.
-     *
-     * @param string $id
-     *
-     * @return Post
+     * {@inheritdoc}
      */
     public function show($id)
     {
@@ -60,12 +45,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     }
 
     /**
-     * Update a post.
-     *
-     * @param string $id
-     * @param array  $data
-     *
-     * @return Post
+     * {@inheritdoc}
      */
     public function update($id, array $data)
     {
@@ -75,9 +55,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     }
 
     /**
-     * Delete a post.
-     *
-     * @param string $id
+     * {@inheritdoc}
      *
      * @throws \Exception
      */

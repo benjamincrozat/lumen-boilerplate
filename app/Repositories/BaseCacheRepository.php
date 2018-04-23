@@ -11,7 +11,7 @@ abstract class BaseCacheRepository
      *
      * @var string
      */
-    public static $tag;
+    protected $tag;
 
     /**
      * @var mixed
@@ -74,13 +74,20 @@ abstract class BaseCacheRepository
      * Return an array of tags.
      *
      * @return array
+     *
+     * @throws \Exception
      */
     protected function tags()
     {
+        // $this->tag cannot be null, 0, '', [], etc.
+        if (empty($this->tag)) {
+            throw new \Exception('The "tag" property of "' . get_class($this) . '" should have a value.');
+        }
+
         $user_id = optional(app('auth')->user())->id;
 
         return [
-            self::$tag,
+            $this->tag,
             $user_id ?? 'guests',
         ];
     }

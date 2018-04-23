@@ -8,11 +8,7 @@ use App\Contracts\PostsRepositoryContract;
 class PostsRepository implements PostsRepositoryContract
 {
     /**
-     * Get posts.
-     *
-     * @param array $data
-     *
-     * @return \Illuminate\Contracts\Pagination\Paginator
+     * {@inheritdoc}
      */
     public function index(array $data)
     {
@@ -20,11 +16,7 @@ class PostsRepository implements PostsRepositoryContract
     }
 
     /**
-     * Store a post.
-     *
-     * @param array $data
-     *
-     * @return Post
+     * {@inheritdoc}
      */
     public function store(array $data)
     {
@@ -36,11 +28,7 @@ class PostsRepository implements PostsRepositoryContract
     }
 
     /**
-     * Get a post.
-     *
-     * @param string|int $id
-     *
-     * @return Post
+     * {@inheritdoc}
      */
     public function show($id)
     {
@@ -48,12 +36,7 @@ class PostsRepository implements PostsRepositoryContract
     }
 
     /**
-     * Update a post.
-     *
-     * @param string|int $id
-     * @param array      $data
-     *
-     * @return Post
+     * {@inheritdoc}
      */
     public function update($id, array $data)
     {
@@ -67,9 +50,7 @@ class PostsRepository implements PostsRepositoryContract
     }
 
     /**
-     * Delete a post.
-     *
-     * @param string|int $id
+     * {@inheritdoc}
      *
      * @throws \Exception
      */
