@@ -8,24 +8,11 @@ use App\Contracts\PostsRepositoryContract;
 class PostsRepository implements PostsRepositoryContract
 {
     /**
-     * @var App\User
-     */
-    protected $user;
-
-    /**
-     * Constructor.
-     */
-    public function __construct()
-    {
-        $this->user = app('auth')->user();
-    }
-
-    /**
      * Get posts.
      *
      * @param array $data
      *
-     * @return Paginator
+     * @return \Illuminate\Contracts\Pagination\Paginator
      */
     public function index(array $data)
     {
@@ -41,7 +28,7 @@ class PostsRepository implements PostsRepositoryContract
      */
     public function store(array $data)
     {
-        if (! ($post = $this->user->posts()->save(new Post($data)))) {
+        if (! ($post = app('auth')->user()->posts()->save(new Post($data)))) {
             abort('Error while creating the resource.');
         }
 
@@ -84,10 +71,10 @@ class PostsRepository implements PostsRepositoryContract
      *
      * @param string|int $id
      *
-     * @return bool
+     * @throws \Exception
      */
     public function destroy($id)
     {
-        return Post::findOrFail($id)->delete();
+        Post::findOrFail($id)->delete();
     }
 }

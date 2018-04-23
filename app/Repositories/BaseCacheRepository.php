@@ -35,9 +35,9 @@ abstract class BaseCacheRepository
      *
      * @return mixed
      */
-    protected function remember($key, \Closure $callback)
+    protected function remember($key, \Closure $callback, $time = 60)
     {
-        return $this->tagged()->rememberForever($key, $callback);
+        return $this->tagged()->remember($key, $time, $callback);
     }
 
     /**
@@ -46,8 +46,6 @@ abstract class BaseCacheRepository
     protected function flush()
     {
         $this->tagged()->flush();
-
-        event('cache.tag_flushed', [self::$tag]);
     }
 
     /**
@@ -57,6 +55,9 @@ abstract class BaseCacheRepository
      */
     protected function tagged()
     {
-        return app('cache')->tags(self::$tag);
+        return app('cache')->tags([
+            self::$tag,
+            optional(app('auth')->user())->id,
+        ]);
     }
 }

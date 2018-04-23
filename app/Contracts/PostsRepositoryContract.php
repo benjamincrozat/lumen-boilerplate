@@ -12,7 +12,7 @@ interface PostsRepositoryContract
      *
      * @param array $data
      *
-     * @return Paginator
+     * @return \Illuminate\Contracts\Pagination\Paginator
      */
     public function index(array $data);
 
@@ -21,7 +21,7 @@ interface PostsRepositoryContract
      *
      * @param array $data
      *
-     * @return Post
+     * @return \App\Post
      */
     public function store(array $data);
 
@@ -30,7 +30,7 @@ interface PostsRepositoryContract
      *
      * @param string $id
      *
-     * @return Post
+     * @return \App\Post
      */
     public function show($id);
 
@@ -40,7 +40,7 @@ interface PostsRepositoryContract
      * @param string $id
      * @param array  $data
      *
-     * @return Post
+     * @return \App\Post
      */
     public function update($id, array $data);
 

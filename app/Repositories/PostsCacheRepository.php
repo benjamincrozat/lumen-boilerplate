@@ -5,6 +5,9 @@ namespace App\Repositories;
 use App\Post;
 use App\Contracts\PostsRepositoryContract;
 
+/**
+ * @property PostsRepository $next
+ */
 class PostsCacheRepository extends BaseCacheRepository implements PostsRepositoryContract
 {
     /**
@@ -19,7 +22,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
      *
      * @param array $data
      *
-     * @return Paginator
+     * @return \Illuminate\Contracts\Pagination\Paginator
      */
     public function index(array $data)
     {
@@ -77,6 +80,8 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
      * Delete a post.
      *
      * @param string $id
+     *
+     * @throws \Exception
      */
     public function destroy($id)
     {

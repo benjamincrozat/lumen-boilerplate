@@ -31,8 +31,6 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function user_can_store_post()
     {
-        $this->expectsEvents(['cache.tag_flushed']);
-
         $this->actingAs(factory(User::class)->create())
             ->json('POST', '/posts', $attributes = [
                 'title'   => 'Lorem',
