@@ -32,6 +32,8 @@ abstract class BaseCacheRepository
      * @param string|array $key
      *
      * @return bool
+     *
+     * @throws \Exception
      */
     public function has($key)
     {
@@ -44,6 +46,8 @@ abstract class BaseCacheRepository
      * @param int      $time
      *
      * @return mixed
+     *
+     * @throws \Exception
      */
     protected function remember($key, \Closure $callback, $time = 60)
     {
@@ -64,6 +68,8 @@ abstract class BaseCacheRepository
      * Return tagged cache.
      *
      * @return \Illuminate\Cache\TaggedCache
+     *
+     * @throws \Exception
      */
     protected function tagged()
     {
@@ -79,7 +85,6 @@ abstract class BaseCacheRepository
      */
     protected function tags()
     {
-        // $this->tag cannot be null, 0, '', [], etc.
         if (empty($this->tag)) {
             throw new \Exception('The "tag" property of "' . get_class($this) . '" should have a value.');
         }

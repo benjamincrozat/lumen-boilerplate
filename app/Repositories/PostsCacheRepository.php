@@ -16,6 +16,8 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \Exception
      */
     public function index(array $data)
     {
@@ -36,6 +38,8 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \Exception
      */
     public function show($id)
     {
