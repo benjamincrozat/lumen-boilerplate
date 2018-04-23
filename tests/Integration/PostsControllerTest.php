@@ -2,6 +2,7 @@
 
 use App\Post;
 use App\User;
+use App\Cache\Events\CacheFlushed;
 
 class PostsControllerTest extends TestCase
 {
@@ -37,6 +38,8 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function user_can_store_post()
     {
+        $this->expectsEvents([CacheFlushed::class]);
+
         $this->actingAs(factory(User::class)->create())
             ->json('POST', '/posts', $attributes = [
                 'title'   => 'Lorem',
@@ -128,6 +131,8 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function user_can_update_post()
     {
+        $this->expectsEvents([CacheFlushed::class]);
+
         $user = factory(User::class)->create();
         $post = factory(Post::class)->create(['user_id' => $user->id]);
 
@@ -200,6 +205,8 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function user_can_delete_post()
     {
+        $this->expectsEvents([CacheFlushed::class]);
+
         $user = factory(User::class)->create();
         $post = factory(Post::class)->create(['user_id' => $user->id]);
 

@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use App\Cache\Events\CacheFlushed;
+
 abstract class BaseCacheRepository
 {
     /**
@@ -54,6 +56,8 @@ abstract class BaseCacheRepository
     protected function flush()
     {
         $this->tagged()->flush();
+
+        event(new CacheFlushed('', $this->tags()));
     }
 
     /**
@@ -63,10 +67,22 @@ abstract class BaseCacheRepository
      */
     protected function tagged()
     {
-        return app('cache')->tags([
+        return app('cache')->tags($this->tags());
+    }
+
+    /**
+     * Return an array of tags.
+     *
+     * @return array
+     */
+    protected function tags()
+    {
+        $user_id = optional(app('auth')->user())->id;
+
+        return [
             self::$tag,
-            optional(app('auth')->user())->id,
-        ]);
+            $user_id ?? 'guests',
+        ];
     }
 
     /**

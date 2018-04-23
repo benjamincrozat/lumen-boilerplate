@@ -71,9 +71,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     {
         $this->flush();
 
-        return $this->remember($id, function () use ($id, $data) {
-            return $this->next->update($id, $data);
-        });
+        return $this->next->update($id, $data);
     }
 
     /**
