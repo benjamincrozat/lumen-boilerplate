@@ -93,11 +93,10 @@ class PostsControllerTest extends TestCase
     public function user_can_read_post()
     {
         $user = factory(User::class)->create();
-
         $post = factory(Post::class)->create(['user_id' => $user->id]);
 
         $this->actingAs($user)
-            ->json('GET', '/posts/' . $post->id)
+            ->json('GET', "/posts/$post->id")
             ->seeJsonStructure([
                 // This relationship should be loaded.
                 'data' => ['user'],
@@ -122,24 +121,21 @@ class PostsControllerTest extends TestCase
     public function user_can_update_post()
     {
         $user = factory(User::class)->create();
-
         $post = factory(Post::class)->create(['user_id' => $user->id]);
 
         $new_title   = 'Hello';
         $new_content = 'World';
 
         $this->actingAs($user)
-            ->json('PUT', '/posts/' . $post->id, [
+            ->json('PUT', "/posts/$post->id", [
                 'title'   => $new_title,
                 'content' => $new_content,
             ])
-            ->seeJsonStructure([
-                'data' => ['user'],
-            ])
+            ->seeJsonStructure(['data' => ['user']])
             // Make sure we get fresh data.
             ->seeJson([
-                'title'      => $new_title,
-                'content'    => $new_content,
+                'title'   => $new_title,
+                'content' => $new_content,
             ]);
     }
 
@@ -147,7 +143,6 @@ class PostsControllerTest extends TestCase
     public function user_cannot_update_post_without_title()
     {
         $user = factory(User::class)->create();
-
         $post = factory(Post::class)->create(['user_id' => $user->id]);
 
         $this->actingAs($user)
@@ -169,7 +164,7 @@ class PostsControllerTest extends TestCase
         ]);
 
         $this->actingAs($user)
-            ->json('PUT', '/posts/' . $first_post->id, [
+            ->json('PUT', "/posts/$first_post->id", [
                 'title'   => $second_post->title,
                 'content' => 'Bar',
             ])
@@ -180,13 +175,10 @@ class PostsControllerTest extends TestCase
     public function user_cannot_update_post_without_content()
     {
         $user = factory(User::class)->create();
-
         $post = factory(Post::class)->create(['user_id' => $user->id]);
 
         $this->actingAs($user)
-            ->json('PUT', '/posts/' . $post->id, [
-                'title' => 'Foo',
-            ])
+            ->json('PUT', "/posts/$post->id", ['title' => 'Foo'])
             ->seeValidationError('content');
     }
 
@@ -201,9 +193,10 @@ class PostsControllerTest extends TestCase
     public function user_can_delete_post()
     {
         $user = factory(User::class)->create();
+        $post = factory(Post::class)->create(['user_id' => $user->id]);
 
         $this->actingAs($user)
-            ->json('DELETE', '/posts/' . factory(Post::class)->create(['user_id' => $user->id])->id)
+            ->json('DELETE', "/posts/$post->id")
             ->seeStatusCode(204);
     }
 }

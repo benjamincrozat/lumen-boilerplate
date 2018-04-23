@@ -11,6 +11,7 @@
 |
 */
 
+/** @var $router Laravel\Lumen\Routing\Router */
 $router->group([
     'middleware'  => 'auth',
     'namespace'   => 'Api\v1',
