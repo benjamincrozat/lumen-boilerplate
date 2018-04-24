@@ -28,6 +28,8 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \Exception
      */
     public function store(array $data)
     {
@@ -50,6 +52,8 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \Exception
      */
     public function update($id, array $data)
     {

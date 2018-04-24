@@ -56,6 +56,8 @@ abstract class BaseCacheRepository
 
     /**
      * Flush the cache only for the current tag.
+     *
+     * @throws \Exception
      */
     protected function flush()
     {
