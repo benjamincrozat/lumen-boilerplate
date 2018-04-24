@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * This trait adds UUID generation to your primary key
@@ -18,7 +19,7 @@ trait HasUuid
     {
         parent::boot();
 
-        self::creating(function ($model) {
+        self::creating(function (Model $model) {
             $model->{$model->getKeyName()} = (string) Str::uuid();
         });
     }

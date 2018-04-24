@@ -14,6 +14,8 @@ class PostsController extends \App\Http\Controllers\Controller
      * @param Request $request
      *
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     *
+     * @throws \Exception
      */
     public function index(Request $request)
     {
@@ -46,6 +48,8 @@ class PostsController extends \App\Http\Controllers\Controller
      * @param string $id
      *
      * @return PostResource
+     *
+     * @throws \Exception
      */
     public function show($id)
     {
