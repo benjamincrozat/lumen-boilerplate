@@ -20,7 +20,7 @@ $router->group(['prefix' => '/api/v1'], function () use ($router) {
     $router->group(['middleware' => 'auth'], function () use ($router) {
         $router->group([
             // Per user rate limit.
-            'middleware' => 'throttle:rate_limit,1'
+            'middleware' => 'throttle:rate_limit,1',
         ], function () use ($router) {
             $router->get('/user', 'UserController');
 
@@ -29,6 +29,6 @@ $router->group(['prefix' => '/api/v1'], function () use ($router) {
                 ->get('/posts/{id}', 'PostsController@show')
                 ->put('/posts/{id}', 'PostsController@update')
                 ->delete('/posts/{id}', 'PostsController@destroy');
-        })
+        });
     });
 });
