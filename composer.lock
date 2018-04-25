@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9681f7365812cd88d899e344f6b5a48c",
+    "content-hash": "8c8a9a6dc77e8b770b04c0e70f785557",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1058,6 +1058,62 @@
             "description": "The Illuminate Redis package.",
             "homepage": "https://laravel.com",
             "time": "2018-02-23T13:54:46+00:00"
+        },
+        {
+            "name": "illuminate/routing",
+            "version": "v5.6.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/routing.git",
+                "reference": "761618573cf4242af211eda36bf349f5b84ad2de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/routing/zipball/761618573cf4242af211eda36bf349f5b84ad2de",
+                "reference": "761618573cf4242af211eda36bf349f5b84ad2de",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": "5.6.*",
+                "illuminate/contracts": "5.6.*",
+                "illuminate/http": "5.6.*",
+                "illuminate/pipeline": "5.6.*",
+                "illuminate/session": "5.6.*",
+                "illuminate/support": "5.6.*",
+                "php": "^7.1.3",
+                "symfony/debug": "~4.0",
+                "symfony/http-foundation": "~4.0",
+                "symfony/http-kernel": "~4.0",
+                "symfony/routing": "~4.0"
+            },
+            "suggest": {
+                "illuminate/console": "Required to use the make commands (5.6.*).",
+                "symfony/psr-http-message-bridge": "Required to psr7 bridging features (~1.0)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Routing\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Routing package.",
+            "homepage": "https://laravel.com",
+            "time": "2018-04-16T12:09:23+00:00"
         },
         {
             "name": "illuminate/session",
@@ -2161,16 +2217,16 @@
         },
         {
             "name": "spatie/laravel-cors",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-cors.git",
-                "reference": "98893ca6eb773f587dfb4e2745dbfabd21fafd27"
+                "reference": "9131db5e4fa5daee7800c828f2a028950e0fe512"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-cors/zipball/98893ca6eb773f587dfb4e2745dbfabd21fafd27",
-                "reference": "98893ca6eb773f587dfb4e2745dbfabd21fafd27",
+                "url": "https://api.github.com/repos/spatie/laravel-cors/zipball/9131db5e4fa5daee7800c828f2a028950e0fe512",
+                "reference": "9131db5e4fa5daee7800c828f2a028950e0fe512",
                 "shasum": ""
             },
             "require": {
@@ -2216,7 +2272,7 @@
                 "request",
                 "spatie"
             ],
-            "time": "2018-03-30T07:39:12+00:00"
+            "time": "2018-04-24T13:25:57+00:00"
         },
         {
             "name": "symfony/console",
@@ -2755,6 +2811,84 @@
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
             "time": "2018-04-03T05:24:00+00:00"
+        },
+        {
+            "name": "symfony/routing",
+            "version": "v4.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/routing.git",
+                "reference": "0663036dd57dbfd4e9ff29f75bbd5dd3253ebe71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/0663036dd57dbfd4e9ff29f75bbd5dd3253ebe71",
+                "reference": "0663036dd57dbfd4e9ff29f75bbd5dd3253ebe71",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "conflict": {
+                "symfony/config": "<3.4",
+                "symfony/dependency-injection": "<3.4",
+                "symfony/yaml": "<3.4"
+            },
+            "require-dev": {
+                "doctrine/annotations": "~1.0",
+                "doctrine/common": "~2.2",
+                "psr/log": "~1.0",
+                "symfony/config": "~3.4|~4.0",
+                "symfony/dependency-injection": "~3.4|~4.0",
+                "symfony/expression-language": "~3.4|~4.0",
+                "symfony/http-foundation": "~3.4|~4.0",
+                "symfony/yaml": "~3.4|~4.0"
+            },
+            "suggest": {
+                "doctrine/annotations": "For using the annotation loader",
+                "symfony/config": "For using the all-in-one router or any loader",
+                "symfony/dependency-injection": "For loading routes from a service",
+                "symfony/expression-language": "For using expression matching",
+                "symfony/http-foundation": "For using a Symfony Request object",
+                "symfony/yaml": "For using the YAML loader"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Routing\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Routing Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "router",
+                "routing",
+                "uri",
+                "url"
+            ],
+            "time": "2018-04-04T13:50:32+00:00"
         },
         {
             "name": "symfony/translation",
@@ -3606,16 +3740,16 @@
         },
         {
             "name": "itsgoingd/clockwork",
-            "version": "v2.2.4",
+            "version": "v2.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itsgoingd/clockwork.git",
-                "reference": "93127290541d9ea22f858033fe3954cb117bd63d"
+                "reference": "3580b0b1406dc69a51359679acaa150d81a74ccb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/93127290541d9ea22f858033fe3954cb117bd63d",
-                "reference": "93127290541d9ea22f858033fe3954cb117bd63d",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/3580b0b1406dc69a51359679acaa150d81a74ccb",
+                "reference": "3580b0b1406dc69a51359679acaa150d81a74ccb",
                 "shasum": ""
             },
             "require": {
@@ -3660,7 +3794,7 @@
                 "profiling",
                 "slim"
             ],
-            "time": "2018-03-31T15:42:01+00:00"
+            "time": "2018-04-24T20:00:28+00:00"
         },
         {
             "name": "laravel/homestead",

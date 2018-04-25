@@ -83,8 +83,15 @@ if (! $app->environment('production')) {
 }
 
 $app->routeMiddleware([
-    'auth' => App\Http\Middleware\Authenticate::class,
+    'auth'     => App\Http\Middleware\Authenticate::class,
+    'throttle' => App\Http\Middleware\ThrottleRequests::class,
 ]);
+
+if ('redis' === config('cache.default')) {
+    $app->routeMiddleware(['throttle' => App\Http\Middleware\ThrottleRequestsWithRedis::class]);
+} else {
+    $app->routeMiddleware(['throttle' => App\Http\Middleware\ThrottleRequests::class]);
+}
 
 /*
 |--------------------------------------------------------------------------

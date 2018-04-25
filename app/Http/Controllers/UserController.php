@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\UserResource;
 
-class UserController extends \App\Http\Controllers\Controller
+class UserController extends Controller
 {
     /**
      * Return authenticated user.

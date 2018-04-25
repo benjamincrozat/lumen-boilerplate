@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('api_token', 60);
+            $table->integer('rate_limit')->default(60);
             $table->timestamps();
         });
     }

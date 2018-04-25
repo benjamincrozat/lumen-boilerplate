@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1;
+namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Resources\PostResource;
 
-class PostsController extends \App\Http\Controllers\Controller
+class PostsController extends Controller
 {
     /**
      * Return a listing of the resource.
