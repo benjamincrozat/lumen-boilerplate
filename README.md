@@ -23,6 +23,7 @@ Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a
 - [Clockwork](https://underground.works/clockwork/) for easy debugging
 - [codedungeon/phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer) and [nunomaduro/collision](https://github.com/nunomaduro/collision) to make testing even more enjoyable
 - [illuminate/redis](https://github.com/illuminate/redis) and [predis/predis](https://github.com/predis/predis) for Redis based caching and queueing (I recommand installing the native PHP extension instead of predis/predis, though)
+- [illuminate/routing](https://github.com/illuminate/routing) for requests throttling. Don't worry, only the middleware is loaded.
 - [laravel/tinker](https://github.com/laravel/tinker)
 - [spatie/laravel-cors](https://github.com/spatie/laravel-cors)
 - [symfony/var-dumper](https://symfony.com/doc/current/components/var_dumper.html) for the `dump()` helper
@@ -71,15 +72,7 @@ curl --request GET http://example.test/api/v1/user?api_token=fIj2rTFTWbB2UO2ZrVh
 
 ## Sample code
 
-Lumen Boilerplate integrates basic CRUD for blog posts as an example. Here are all the fancy features and design patterns I use for the cleanest implementation possible:
-- [Caching](https://lumen.laravel.com/docs/cache)
-- [Decorator design pattern](https://www.google.com/search?q=decorator+design+pattern) (used in repositories for elegant caching)
-- [Dependency injection design pattern](https://laravel.com/docs/container#introduction)
-- [Eloquent](https://laravel.com/docs/eloquent) (see the `app` folder for the models)
-- [JSON resources](https://laravel.com/docs/eloquent-resources) (see the `app/Http/Resources` folder)
-- [Repository design pattern](https://www.google.com/search?q=repository+design+pattern) (see the `app/Repositories` folder and `app/Contracts/PostsRepositoryContract.php`)
-- [Service container](https://lumen.laravel.com/docs/container) (see `app/Providers/AppServiceProvider.php`)
-- Example files that you can quickly duplicate
+Lumen Boilerplate integrates basic CRUD for blog posts and sample files that can be quickly duplicated.
 
 ## Testing
 
