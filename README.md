@@ -72,7 +72,7 @@ curl --request GET http://example.test/api/v1/user?api_token=fIj2rTFTWbB2UO2ZrVh
 
 ## Sample code
 
-Lumen Boilerplate integrates basic CRUD for blog posts, integration tests and sample files that can be quickly duplicated.
+Lumen Boilerplate integrates basic CRUD for blog posts, integration tests and sample files that can be quickly duplicated. The code is IDE-friendly and as clean and comprehensive as I can.
 
 ## Testing
 
