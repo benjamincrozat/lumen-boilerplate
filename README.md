@@ -18,7 +18,7 @@ Opinionated way to start a new Lumen project.
 ## Why?
 
 Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a lot of things for real world needs, it's still too light to me. Here is a list of useful packages I added to the project:
-- [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) to help you out digging Lumen's source
+- [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) to help you out digging Lumen's source and enjoy autocompletion
 - [benjamincrozat/lumen-swagger](https://github.com/benjamincrozat/lumen-swagger) to generate a `swagger.json` file from annotations
 - [Clockwork](https://underground.works/clockwork/) for easy debugging
 - [codedungeon/phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer) and [nunomaduro/collision](https://github.com/nunomaduro/collision) to make testing even more enjoyable
