@@ -23,7 +23,7 @@ Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a
 - [Clockwork](https://underground.works/clockwork/) for easy debugging
 - [codedungeon/phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer) and [nunomaduro/collision](https://github.com/nunomaduro/collision) to make testing even more enjoyable
 - [illuminate/redis](https://github.com/illuminate/redis) and [predis/predis](https://github.com/predis/predis) for Redis based caching and queueing (I recommand installing the native PHP extension instead of predis/predis, though)
-- [illuminate/routing](https://github.com/illuminate/routing) for requests throttling. Don't worry, only the middleware is loaded.
+- [illuminate/routing](https://github.com/illuminate/routing) for requests throttling. Don't worry, only the middleware is loaded (you can even choose a Redis based throttling)
 - [laravel/tinker](https://github.com/laravel/tinker)
 - [spatie/laravel-cors](https://github.com/spatie/laravel-cors)
 - [symfony/var-dumper](https://symfony.com/doc/current/components/var_dumper.html) for the `dump()` helper
