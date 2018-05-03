@@ -136,20 +136,16 @@ class PostsControllerTest extends TestCase
         $user = factory(User::class)->create();
         $post = factory(Post::class)->create(['user_id' => $user->id]);
 
-        $new_title   = 'Hello';
-        $new_content = 'World';
+        $attributes = [
+            'title'   => 'Hello',
+            'content' => 'World',
+        ];
 
         $this->actingAs($user)
-            ->json('PUT', "/posts/$post->id", [
-                'title'   => $new_title,
-                'content' => $new_content,
-            ])
+            ->json('PUT', "/posts/$post->id", $attributes)
             ->seeJsonStructure(['data' => ['user']])
             // Make sure we get fresh data.
-            ->seeJson([
-                'title'   => $new_title,
-                'content' => $new_content,
-            ]);
+            ->seeJson($attributes);
     }
 
     /** @test */
@@ -159,9 +155,7 @@ class PostsControllerTest extends TestCase
         $post = factory(Post::class)->create(['user_id' => $user->id]);
 
         $this->actingAs($user)
-            ->json('PUT', '/posts/' . $post->id, [
-                'content' => 'Foo',
-            ])
+            ->json('PUT', '/posts/' . $post->id, ['content' => 'Foo'])
             ->seeValidationError('title');
     }
 
