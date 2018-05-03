@@ -18,16 +18,16 @@ Opinionated way to start a new Lumen project.
 ## Why?
 
 Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a lot of things for real world needs, it's still too light to me. Here is a list of useful packages I added to the project:
-- [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) to help you out digging Lumen's source and enjoy autocompletion
-- [benjamincrozat/lumen-swagger](https://github.com/benjamincrozat/lumen-swagger) to generate a `swagger.json` file from annotations
-- [Clockwork](https://underground.works/clockwork/) for easy debugging
-- [codedungeon/phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer) and [nunomaduro/collision](https://github.com/nunomaduro/collision) to make testing even more enjoyable
-- [illuminate/redis](https://github.com/illuminate/redis) and [predis/predis](https://github.com/predis/predis) for Redis based caching and queueing (I recommand installing the native PHP extension instead of predis/predis, though)
-- [illuminate/routing](https://github.com/illuminate/routing) for requests throttling. Don't worry, only the middleware is loaded (you can even choose a Redis based throttling)
-- [laravel/tinker](https://github.com/laravel/tinker)
-- [spatie/laravel-cors](https://github.com/spatie/laravel-cors)
-- [symfony/var-dumper](https://symfony.com/doc/current/components/var_dumper.html) for the `dump()` helper
-- [webpatser/laravel-uuid](https://github.com/webpatser/laravel-uuid), supported by default on User and Post models
+- [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) to help you out digging Lumen's source and enjoy autocompletion;
+- [benjamincrozat/lumen-swagger](https://github.com/benjamincrozat/lumen-swagger) to generate a `swagger.json` file from annotations;
+- [Clockwork](https://underground.works/clockwork/) for easy debugging;
+- [codedungeon/phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer) and [nunomaduro/collision](https://github.com/nunomaduro/collision) to make testing even more enjoyable;
+- [illuminate/redis](https://github.com/illuminate/redis) and [predis/predis](https://github.com/predis/predis) for Redis based caching and queueing (I recommand installing the native PHP extension instead of predis/predis, though);
+- [illuminate/routing](https://github.com/illuminate/routing) for requests throttling. Don't worry, only the middleware is loaded (you can even choose a Redis based throttling);
+- [laravel/tinker](https://github.com/laravel/tinker);
+- [spatie/laravel-cors](https://github.com/spatie/laravel-cors);
+- [symfony/var-dumper](https://symfony.com/doc/current/components/var_dumper.html) for the `dump()` helper;
+- [webpatser/laravel-uuid](https://github.com/webpatser/laravel-uuid), supported by default on User and Post models.
 
 ## Usage
 
@@ -98,9 +98,9 @@ php vendor/bin/phpunit tests/Integration/UserControllerTest.php --filter user_ca
 ```
 
 Here are some of my thoughts on testing:
-- Unit Tests don't ensure a working API. Good Integration Tests make your API a hell lot more reliable;
-- Use Facades inside your tests to make mocking smoother;
-- Be as exhaustive as possible.
+- Unit Tests don't ensure a working API. Good Integration Tests make your API a hell lot more reliable and you don't have to switch back and forth between your code and a HTTP client;
+- Test all your endpoints and validation rules. Don't forget to tests permissions too.
+- Use [Facades inside your tests](https://laravel.com/docs/5.6/mocking) to make mocking smoother;
 
 ![](https://user-images.githubusercontent.com/3613731/39563202-7a9e0eb4-4eaf-11e8-8392-12d6e72ecb99.jpg)
 
