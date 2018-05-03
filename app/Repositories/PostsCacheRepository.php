@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use Exception;
 use App\Contracts\PostsRepositoryContract;
 
 /**
@@ -17,7 +18,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     /**
      * {@inheritdoc}
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function index(array $data)
     {
@@ -29,7 +30,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     /**
      * {@inheritdoc}
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function store(array $data)
     {
@@ -41,7 +42,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     /**
      * {@inheritdoc}
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function show($id)
     {
@@ -53,7 +54,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     /**
      * {@inheritdoc}
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function update($id, array $data)
     {
@@ -65,7 +66,7 @@ class PostsCacheRepository extends BaseCacheRepository implements PostsRepositor
     /**
      * {@inheritdoc}
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroy($id)
     {

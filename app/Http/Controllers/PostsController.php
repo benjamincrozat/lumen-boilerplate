@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use Exception;
 use Illuminate\Http\Request;
 use App\Http\Resources\PostResource;
 
@@ -15,7 +16,7 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function index(Request $request)
     {
@@ -49,7 +50,7 @@ class PostsController extends Controller
      *
      * @return PostResource
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function show($id)
     {
@@ -83,7 +84,7 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroy($id)
     {

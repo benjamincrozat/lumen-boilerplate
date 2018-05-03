@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use Exception;
 use App\Cache\Events\CacheFlushed;
 
 abstract class BaseCacheRepository
@@ -33,7 +34,7 @@ abstract class BaseCacheRepository
      *
      * @return bool
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function has($key)
     {
@@ -47,7 +48,7 @@ abstract class BaseCacheRepository
      *
      * @return mixed
      *
-     * @throws \Exception
+     * @throws Exception
      */
     protected function remember($key, \Closure $callback, $time = 60)
     {
@@ -57,7 +58,7 @@ abstract class BaseCacheRepository
     /**
      * Flush the cache only for the current tag.
      *
-     * @throws \Exception
+     * @throws Exception
      */
     protected function flush()
     {
@@ -71,7 +72,7 @@ abstract class BaseCacheRepository
      *
      * @return \Illuminate\Cache\TaggedCache
      *
-     * @throws \Exception
+     * @throws Exception
      */
     protected function tagged()
     {
@@ -83,12 +84,12 @@ abstract class BaseCacheRepository
      *
      * @return array
      *
-     * @throws \Exception
+     * @throws Exception
      */
     protected function tags()
     {
         if (empty($this->tag)) {
-            throw new \Exception('The "tag" property of "' . get_class($this) . '" should have a value.');
+            throw new Exception('The "tag" property of "' . get_class($this) . '" should have a value.');
         }
 
         $user_id = optional(app('auth')->user())->id;

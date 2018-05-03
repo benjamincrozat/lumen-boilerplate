@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Post;
+use Exception;
 use App\Contracts\PostsRepositoryContract;
 
 class PostsRepository implements PostsRepositoryContract
@@ -52,7 +53,7 @@ class PostsRepository implements PostsRepositoryContract
     /**
      * {@inheritdoc}
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function destroy($id)
     {
