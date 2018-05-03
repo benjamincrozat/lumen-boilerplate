@@ -98,11 +98,11 @@ php vendor/bin/phpunit tests/Integration/UserControllerTest.php --filter user_ca
 ```
 
 Here are some of my thoughts on testing:
-- Unit Tests don't ensure a working app. Good Integration Tests make your app a hell lot more reliable;
+- Unit Tests don't ensure a working API. Good Integration Tests make your API a hell lot more reliable;
 - Use Facades inside your tests to make mocking smoother;
 - Be as exhaustive as possible.
 
-![](https://user-images.githubusercontent.com/3613731/34539046-4eeb8c30-f0cf-11e7-9819-f6dce59a2d96.png)
+![](https://user-images.githubusercontent.com/3613731/39563202-7a9e0eb4-4eaf-11e8-8392-12d6e72ecb99.jpg)
 
 ## License
 
