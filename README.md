@@ -26,8 +26,7 @@ Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a
 - [illuminate/routing](https://github.com/illuminate/routing) for requests throttling. Don't worry, only the middleware is loaded (you can even choose a Redis based throttling);
 - [laravel/tinker](https://github.com/laravel/tinker);
 - [spatie/laravel-cors](https://github.com/spatie/laravel-cors);
-- [symfony/var-dumper](https://symfony.com/doc/current/components/var_dumper.html) for the `dump()` helper;
-- [webpatser/laravel-uuid](https://github.com/webpatser/laravel-uuid), supported by default on User and Post models.
+- [symfony/var-dumper](https://symfony.com/doc/current/components/var_dumper.html) for the `dump()` helper.
 
 ## Usage
 
