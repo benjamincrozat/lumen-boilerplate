@@ -6,9 +6,15 @@ php:
 
 services:
     - redis-server
+    
+cache:
+    directories:
+        - node_modules
+        - vendor
 
 install:
-    - composer install --no-interaction --prefer-dist
+    - cp .env.example .env
+    - composer install --no-interaction --no-suggest --prefer-dist
 
 script:
     - php vendor/bin/phpunit
