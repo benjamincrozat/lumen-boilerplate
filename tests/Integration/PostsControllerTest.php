@@ -6,6 +6,16 @@ use App\Cache\Events\CacheFlushed;
 
 class PostsControllerTest extends TestCase
 {
+    /**
+     * Flush Redis cache before every test.
+     */
+    public function setUp()
+    {
+        parent::setUp();
+
+        cache()->flush();
+    }
+    
     /** @test */
     public function guest_cannot_list_posts()
     {
