@@ -40,6 +40,18 @@ abstract class BaseCacheRepository
     {
         return $this->tagged()->has($this->key($key));
     }
+    
+    /**
+     * Flush the cache only for the current tag.
+     *
+     * @throws Exception
+     */
+    public function flush()
+    {
+        $this->tagged()->flush();
+
+        event(new CacheFlushed('', $this->tags()));
+    }
 
     /**
      * @param string   $key
@@ -53,18 +65,6 @@ abstract class BaseCacheRepository
     protected function remember($key, \Closure $callback, $time = 60)
     {
         return $this->tagged()->remember($this->key($key), $time, $callback);
-    }
-
-    /**
-     * Flush the cache only for the current tag.
-     *
-     * @throws Exception
-     */
-    protected function flush()
-    {
-        $this->tagged()->flush();
-
-        event(new CacheFlushed('', $this->tags()));
     }
 
     /**
