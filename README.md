@@ -7,6 +7,8 @@
 
 Opinionated way to start a new Lumen project.
 
+I also have an opionionated [Laravel Boilerplate repository](https://github.com/benjamincrozat/laravel-boilerplate).
+
 ## Summary
 
 * [Why?](#why)
