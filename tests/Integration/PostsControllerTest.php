@@ -13,7 +13,7 @@ class PostsControllerTest extends TestCase
     {
         parent::setUp();
 
-        cache()->flush();
+        Posts::flush();
     }
     
     /** @test */
