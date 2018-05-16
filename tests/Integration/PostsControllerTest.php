@@ -63,15 +63,12 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function user_cannot_store_post_with_an_already_used_title()
     {
-        $user = factory(User::class)->create();
-
-        factory(Post::class)->create([
-            'user_id' => $user->id,
+        $post = factory(Post::class)->create([
             'title'   => 'Lorem',
             'content' => 'Ipsum',
         ]);
 
-        $this->actingAs($user)
+        $this->actingAs($post->user)
             ->json('POST', '/posts', [
                 'title'   => 'Lorem',
                 'content' => 'Ipsum',
@@ -99,10 +96,9 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function user_can_read_post()
     {
-        $user = factory(User::class)->create();
-        $post = factory(Post::class)->create(['user_id' => $user->id]);
+        $post = factory(Post::class)->create();
 
-        $this->actingAs($user)
+        $this->actingAs($post->user)
             ->json('GET', "/posts/$post->id")
             ->seeJsonStructure([
                 // This relationship should be loaded.
@@ -133,44 +129,43 @@ class PostsControllerTest extends TestCase
     {
         $this->expectsEvents([CacheFlushed::class]);
 
-        $user = factory(User::class)->create();
-        $post = factory(Post::class)->create(['user_id' => $user->id]);
+        $post = factory(Post::class)->create();
 
-        $attributes = [
-            'title'   => 'Hello',
-            'content' => 'World',
-        ];
+        $new_title   = 'Hello';
+        $new_content = 'World';
 
-        $this->actingAs($user)
-            ->json('PUT', "/posts/$post->id", $attributes)
+        $this->actingAs($post->user)
+            ->json('PUT', "/posts/$post->id", [
+                'title'   => $new_title,
+                'content' => $new_content,
+            ])
             ->seeJsonStructure(['data' => ['user']])
             // Make sure we get fresh data.
-            ->seeJson($attributes);
+            ->seeJson([
+                'title'   => $new_title,
+                'content' => $new_content,
+            ]);
     }
 
     /** @test */
     public function user_cannot_update_post_without_title()
     {
-        $user = factory(User::class)->create();
-        $post = factory(Post::class)->create(['user_id' => $user->id]);
+        $post = factory(Post::class)->create();
 
-        $this->actingAs($user)
-            ->json('PUT', '/posts/' . $post->id, ['content' => 'Foo'])
+        $this->actingAs($post->user)
+            ->json('PUT', '/posts/' . $post->id, [
+                'content' => 'Foo',
+            ])
             ->seeValidationError('title');
     }
 
     /** @test */
     public function user_cannot_update_post_with_an_already_used_title()
     {
-        $user = factory(User::class)->create();
+        $first_post  = factory(Post::class)->create();
+        $second_post = factory(Post::class)->create(['title' => 'Foo']);
 
-        $first_post  = factory(Post::class)->create(['user_id' => $user->id]);
-        $second_post = factory(Post::class)->create([
-            'user_id' => $user->id,
-            'title'   => 'Foo',
-        ]);
-
-        $this->actingAs($user)
+        $this->actingAs($first_post->user)
             ->json('PUT', "/posts/$first_post->id", [
                 'title'   => $second_post->title,
                 'content' => 'Bar',
@@ -181,10 +176,9 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function user_cannot_update_post_without_content()
     {
-        $user = factory(User::class)->create();
-        $post = factory(Post::class)->create(['user_id' => $user->id]);
+        $post = factory(Post::class)->create();
 
-        $this->actingAs($user)
+        $this->actingAs($post->user)
             ->json('PUT', "/posts/$post->id", ['title' => 'Foo'])
             ->seeValidationError('content');
     }
@@ -201,10 +195,9 @@ class PostsControllerTest extends TestCase
     {
         $this->expectsEvents([CacheFlushed::class]);
 
-        $user = factory(User::class)->create();
-        $post = factory(Post::class)->create(['user_id' => $user->id]);
+        $post = factory(Post::class)->create();
 
-        $this->actingAs($user)
+        $this->actingAs($post->user)
             ->json('DELETE', "/posts/$post->id")
             ->seeStatusCode(204);
     }
