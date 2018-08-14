@@ -22,10 +22,10 @@ I also have an opionionated [Laravel Boilerplate repository](https://github.com/
 Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a lot of things for real world needs, it's still too light to me. Here is a list of useful packages I added to the project:
 
 - [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) to help you out digging Lumen's source and enjoy autocompletion;
-- [itsgoingd/clockwork](https://underground.works/clockwork/) for easy debugging;
 - [codedungeon/phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer) and [nunomaduro/collision](https://github.com/nunomaduro/collision) to make testing even more enjoyable;
 - [illuminate/redis](https://github.com/illuminate/redis) and [predis/predis](https://github.com/predis/predis) for Redis based caching and queueing (I recommand installing the native PHP extension instead of predis/predis, though);
 - [illuminate/routing](https://github.com/illuminate/routing) for requests throttling. Don't worry, only the middleware is loaded (you can even choose a Redis based throttling);
+- [itsgoingd/clockwork](https://underground.works/clockwork/) for easy debugging;
 - [laravel/tinker](https://github.com/laravel/tinker);
 - [spatie/laravel-cors](https://github.com/spatie/laravel-cors);
 - [symfony/var-dumper](https://symfony.com/doc/current/components/var_dumper.html) for the `dump()` helper.
@@ -40,13 +40,23 @@ If you are familiar with Lumen, let's create a new project via Composer (if not,
 composer create-project benjamincrozat/lumen-boilerplate example
 ```
 
-Set up your `.env` file and run your migrations. You can even seed some fake data for users:
+Set up your `.env` file. The `php artisan key:generate` command isn't available in Lumen, but you can just do:
+
+```bash
+php artisan tinker
+
+Psy Shell
+>>> 'base64:' . base64_encode(Illuminate\Encryption\Encrypter::generateKey(config('app.cipher')))
+=> "base64:6D+I2mFMJHdw0VRDamdcy0XrgUGdHiv7ALd1+aKDmhc="
+```
+
+Then, run your migrations. You can even seed some fake data for users:
 
 ```bash
 php artisan migrate --seed
 ```
 
-Laravel Tinker is part of this project. You can use it to quickly get an API token...
+You can also use Tinker to quickly get an API token...
 
 ```bash
 php artisan tinker
@@ -72,7 +82,7 @@ curl --request GET http://example.test/api/v1/user?api_token=fIj2rTFTWbB2UO2ZrVh
 
 ## Sample code
 
-Lumen Boilerplate integrates basic CRUD for blog posts, integration tests and sample files that can be quickly duplicated. The code is IDE-friendly and as clean and comprehensive as I can. Note that type-hinting is used only when needed, because they're checked at runtime.
+Lumen Boilerplate integrates basic CRUD for blog posts, integration tests and sample files that can be quickly duplicated. The code is IDE-friendly and as clean and comprehensive as I can. Note that type-hinting is used only when needed, because it adds runtime checks.
 
 ## Testing
 
