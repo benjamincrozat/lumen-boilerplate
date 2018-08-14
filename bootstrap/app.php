@@ -104,7 +104,6 @@ if ('redis' === config('cache.default')) {
 |
 */
 
-$app->register(BC\LumenSwagger\ServiceProvider::class);
 $app->register(Spatie\Cors\CorsServiceProvider::class);
 $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);

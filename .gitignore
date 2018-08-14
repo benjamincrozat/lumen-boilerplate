@@ -1,12 +1,13 @@
-/_ide_helper.php
-/_ide_helper_models.php
 /.env
 /.env.bak.vessel
 /.idea
 /.phpintel
 /.phpstorm.meta.php
+/_ide_helper.php
+/_ide_helper_models.php
 /Homestead.json
 /Homestead.yaml
 /storage/clockwork
 /vendor
-swagger.json
+composer.lock
+database/database.sqlite

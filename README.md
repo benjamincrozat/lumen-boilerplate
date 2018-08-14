@@ -20,9 +20,9 @@ I also have an opionionated [Laravel Boilerplate repository](https://github.com/
 ## Why?
 
 Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a lot of things for real world needs, it's still too light to me. Here is a list of useful packages I added to the project:
+
 - [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) to help you out digging Lumen's source and enjoy autocompletion;
-- [benjamincrozat/lumen-swagger](https://github.com/benjamincrozat/lumen-swagger) to generate a `swagger.json` file from annotations;
-- [Clockwork](https://underground.works/clockwork/) for easy debugging;
+- [itsgoingd/clockwork](https://underground.works/clockwork/) for easy debugging;
 - [codedungeon/phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer) and [nunomaduro/collision](https://github.com/nunomaduro/collision) to make testing even more enjoyable;
 - [illuminate/redis](https://github.com/illuminate/redis) and [predis/predis](https://github.com/predis/predis) for Redis based caching and queueing (I recommand installing the native PHP extension instead of predis/predis, though);
 - [illuminate/routing](https://github.com/illuminate/routing) for requests throttling. Don't worry, only the middleware is loaded (you can even choose a Redis based throttling);
@@ -72,7 +72,7 @@ curl --request GET http://example.test/api/v1/user?api_token=fIj2rTFTWbB2UO2ZrVh
 
 ## Sample code
 
-Lumen Boilerplate integrates basic CRUD for blog posts, integration tests and sample files that can be quickly duplicated. The code is IDE-friendly and as clean and comprehensive as I can.
+Lumen Boilerplate integrates basic CRUD for blog posts, integration tests and sample files that can be quickly duplicated. The code is IDE-friendly and as clean and comprehensive as I can. Note that type-hinting is used only when needed, because they're checked at runtime.
 
 ## Testing
 
