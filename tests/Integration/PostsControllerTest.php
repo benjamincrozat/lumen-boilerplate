@@ -15,7 +15,7 @@ class PostsControllerTest extends TestCase
 
         app('posts')->flush();
     }
-    
+
     /** @test */
     public function guest_cannot_list_posts()
     {

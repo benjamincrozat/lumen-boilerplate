@@ -13,8 +13,8 @@ class PostResource extends \Illuminate\Http\Resources\Json\Resource
      */
     public function toArray($request)
     {
-        // 1: These are Illuminate\Support\Carbon instances. Since they implement
-        // the magic __toString() method, you can cast them to a string.
+        // 1: These are Illuminate\Support\Carbon instances. They implement
+        // the magic __toString() method, so you can just cast them.
 
         return [
             'id'         => $this->id,

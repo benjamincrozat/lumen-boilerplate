@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * This trait adds UUID generation to your primary key
  * everytime a new model is created. Make sure your
- * column is property configured as an UUID type.
+ * column is properly configured as an UUID type.
  */
 trait HasUuid
 {
