@@ -82,7 +82,7 @@ curl --request GET http://example.test/api/v1/user?api_token=fIj2rTFTWbB2UO2ZrVh
 
 ## Sample code
 
-Lumen Boilerplate integrates basic CRUD for blog posts, integration tests and sample files that can be quickly duplicated. The code is IDE-friendly and as clean and comprehensive as I can. Note that type-hinting is used only when needed, because it adds runtime checks.
+Lumen Boilerplate integrates basic CRUD for blog posts, integration tests and sample files that can be quickly duplicated and changed for whatever you want to build. The code is IDE-friendly and as clean and comprehensive as I can. Note that type-hinting is used only when needed, because it adds runtime checks.
 
 ## Testing
 
@@ -110,8 +110,8 @@ php vendor/bin/phpunit tests/Integration/UserControllerTest.php --filter user_ca
 
 Here are some of my thoughts on testing:
 - Unit Tests don't ensure a working API. Good Integration Tests make your API a hell lot more reliable and you don't have to switch back and forth between your code and a HTTP client;
-- Test all your endpoints and validation rules. Don't forget to tests permissions too.
-- Use [Facades inside your tests](https://laravel.com/docs/5.6/mocking) to make mocking smoother;
+- Test all your endpoints and validation rules. Don't forget to tests permissions too;
+- Use [Facades inside your tests](https://laravel.com/docs/5.6/mocking) to make mocking smoother.
 
 ![](https://user-images.githubusercontent.com/3613731/39563202-7a9e0eb4-4eaf-11e8-8392-12d6e72ecb99.jpg)
 
