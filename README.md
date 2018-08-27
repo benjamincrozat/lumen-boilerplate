@@ -110,8 +110,8 @@ php vendor/bin/phpunit tests/Integration/UserControllerTest.php --filter user_ca
 
 Here are some of my thoughts on testing:
 - Unit Tests don't ensure a working API. Good Integration Tests make your API a hell lot more reliable and you don't have to switch back and forth between your code and a HTTP client;
-- Test all your endpoints and validation rules. Don't forget to tests permissions too;
-- Use [Facades inside your tests](https://laravel.com/docs/5.6/mocking) to make mocking smoother.
+- Be exhaustive. Test your validations rules, permissions, JSON structure, etc.
+- I recommend to [use Facades inside your tests](https://laravel.com/docs/5.6/mocking) to make mocking and team work smoother.
 
 ![](https://user-images.githubusercontent.com/3613731/39563202-7a9e0eb4-4eaf-11e8-8392-12d6e72ecb99.jpg)
 
