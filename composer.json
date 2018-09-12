@@ -23,7 +23,6 @@
         "vlucas/phpdotenv": "~2.2"
     },
     "require-dev": {
-        "barryvdh/laravel-ide-helper": "^2.4",
         "codedungeon/phpunit-result-printer": "0.*",
         "doctrine/dbal": "^2.7",
         "fzaninotto/faker": "~1.4",
@@ -49,11 +48,6 @@
     "scripts": {
         "post-root-package-install": [
             "php -r \"copy('.env.example', '.env');\""
-        ],
-        "post-autoload-dump": [
-            "php artisan ide-helper:generate",
-            "php artisan ide-helper:meta",
-            "php artisan ide-helper:models"
         ]
     },
     "minimum-stability": "dev",
