@@ -21,7 +21,6 @@ I also have an opionionated [Laravel Boilerplate repository](https://github.com/
 
 Lumen is a very lightweight version of Laravel. Even if Taylor managed to keep a lot of things for real world needs, it's still too light to me. Here is a list of useful packages I added to the project:
 
-- [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) to help you out digging Lumen's source and enjoy autocompletion;
 - [codedungeon/phpunit-result-printer](https://github.com/mikeerickson/phpunit-pretty-result-printer) and [nunomaduro/collision](https://github.com/nunomaduro/collision) to make testing even more enjoyable;
 - [illuminate/redis](https://github.com/illuminate/redis) and [predis/predis](https://github.com/predis/predis) for Redis based caching and queueing (I recommand installing the native PHP extension instead of predis/predis, though);
 - [illuminate/routing](https://github.com/illuminate/routing) for requests throttling. Don't worry, only the middleware is loaded (you can even choose a Redis based throttling);
